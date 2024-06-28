@@ -9,50 +9,42 @@ body {
     background-attachment: fixed;
     }
 
-
-    /*immagini e video*/
-    .carousel-item img {
-
-        padding-top: 100px;
-    }
-
-    .festival {
-        transition: all .2s ease-in-out;
-        }
-
-    .festival:hover {
-        transform: scale(1.1);
-        }
-
-    div.tabella {
-        text-align: center;
-        padding-left: 400px;
-        padding-right: 400px;
-    }
-    /*fine immagini e video*/
-
-    /*caratteri*/
-    hr {
-        color:aliceblue;
-        border-top: 2px dotted;
-        width:50%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    div.descrizione {
-
-        text-align: center;
-        color:aliceblue;
-    }
-
+/*bottone language */
+.language
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    padding: 10px;
+}
+/*bottone question*/
+.bottom-right-image {
+    position: fixed;
+    bottom: 25px;
+    right: 10px;
+    width: 50px; /* Dimensioni dell'immagine */
+    border-radius: 50%; /* Rendi l'immagine tonda */
+    border: 2px solid #fff; /* Aggiungi un bordo bianco */
+    height: 50px;
+}
+/*logged in as*/
+.bottom-left-logged {
+    position: fixed;
+    bottom: 10px; /* Spostato in basso */
+    left: 10px; /* Spostato a sinistra */
+    width: 100px; 
+    height: 50px; 
+}
+    /*characters*/
 
     a {
 
         text-decoration: none;
         font-size: 18px;
-        color:green;
+        color:rgb(11, 244, 11);
     }
+
 
     /*fine caratteri*/
 
@@ -61,30 +53,34 @@ body {
 
     .nav-item
     {
-        text-decoration: none;
-        padding-left:120px;
-        justify-content: center;
+      text-decoration: none;
+      padding-left:3px;
+      padding-right:3px;
+      flex: 1;
+      text-align: center;
     }
-
     .dropdown
     {
         text-decoration: none;
-        padding-right:80px;
+       /*  padding-right:80px; */
     }
 
     .nav-link {
-        color:black;
-        font-size: 20px;
+        color:rgb(3, 129, 226);
+        font-size: 18px;
         text-shadow: -1px 0 white,
-        0 1px white, 1px 0 white,
+        0 1px white, 1px 0 rgb(255, 255, 255),
         0 -1px white;
 
     }
 
+    .navbar-nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
     /*fine menu*/
-
-
 
     /*da bootstrap */
 
@@ -106,13 +102,3 @@ body {
 
 
       /*fine bootstrap*/
-
-
-
-    /* animazione logo nella navbar */
-    .girotondo {
-        -webkit-transform:rotate(360deg);
-        transform: rotate(360deg); /*per compatibilità browser*/
-      -webkit-transition-duration: 2s;
-      transition-duration: 2s; /*per compatibilità browser*/
-    }
