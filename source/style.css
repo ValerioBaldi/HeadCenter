@@ -9,6 +9,11 @@ body {
     background-attachment: fixed;
     }
 
+    #calendar {
+        max-width: 900px;
+        margin: 40px auto;
+    }
+
 /*bottone language */
 .language
 {
