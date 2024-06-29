@@ -2,6 +2,7 @@ let currentPage = 1;
 const formPages = document.querySelectorAll('.form-page');
 const summaryItems = document.querySelectorAll('.summary-item');
 
+showPage(1);
 function showPage(pageNumber) {
     formPages.forEach(page => page.classList.remove('active'));
     summaryItems.forEach(item => item.classList.remove('active'));
