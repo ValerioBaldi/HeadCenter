@@ -153,39 +153,119 @@
 
 
 <div class="container">
-
-
   <div class="summary">
     <h2>Summary</h2>
     <ul id="summary-list">
-        <li class="summary-item active">Pagina 1</li>
-        <li class="summary-item">Pagina 2</li>
-        <li class="summary-item">Pagina 3</li>
+        <li class="summary-item active">Duration</li>
+        <li class="summary-item">Symptoms</li>
+        <li class="summary-item">Type of devices</li>
+        <li class="summary-item">Purpose</li>
     </ul>
   </div>
+
+
   <div class="form-container">
       <form id="multi-step-form">
           <!-- Pagina 1 della form -->
-          <div class="form-page" id="page1">
-              <h4>How long have you used digital devices?</h4>
+          <div class="form-page" style="text-align: center;" id="page1">
+              <h4 >How long have you used digital devices?</h4>
               <br><br>
               <label for="field1">Date:</label>
               <input type="date" id="field1" name="field1">
+              <br><br>
+              <label for="field1">From:</label>
+              <input type="time" id="appt" name="appt" required />
+              <br><br>
+              <label for="field1">To:</label>
+              <input type="time" id="appt" name="appt" required />
               <br><br><br>
               <button type="button" onclick="nextPage()">Next</button>
           </div>
           <!-- Pagina 2 della form -->
-          <div class="form-page" id="page2">
-              <h2>Pagina 2</h2>
-              <label for="field2">Campo 2:</label>
-              <input type="text" id="field2" name="field2">
+          <div class="form-page" style="text-align: center;" id="page2">
+              <h4 >Do you have symptoms?</h4>
+              <br><br>
+              <div class="container-fluid">
+                <div class="row justify-content-between">
+                  <div class="col-sm-4">
+        
+              <label for="field2">No symptoms</label>
+              <input type="checkbox" id="field2" name="field2">
+              <br><br>
+              <label for="field2">Red eyes</label>
+              <input type="checkbox" id="field2" name="field2">
+              <br><br>
+              <label for="field2">Headache</label>
+              <input type="checkbox" id="field2" name="field2">
+              <br><br>
+              </div>
+              <div class="col-sm-4">
+
+              <label for="field2">Back pain</label>
+              <input type="checkbox" id="field2" name="field2">
+              <br><br>
+              <label for="field2">Neck pain</label>
+              <input type="checkbox" id="field2" name="field2">
+              <br><br>
+              <label for="field2">Other</label>
+              <input type="checkbox" id="field2" name="field2">
+                  </div>
+                </div>
+              </div>
+              <br><br>
+
               <button type="button" onclick="nextPage()">Next</button>
           </div>
-          <!-- Pagina 3 della form -->
-          <div class="form-page" id="page3">
-              <h2>Pagina 3</h2>
-              <label for="field3">Campo 3:</label>
-              <input type="text" id="field3" name="field3">
+
+          <!--pagina 3-->
+          <div class="form-page" style="text-align: center;" id="page3">
+            <h4 >What type of devices did you use?</h4>
+            <br><br>
+            <div class="container-fluid">
+              <div class="row justify-content-between">
+          
+                   
+                <div class="col-sm-4">
+      
+            <label for="field2">Smartphone</label>
+            <input type="checkbox" id="field2" name="field2">
+            <br><br>
+            <label for="field2">Computer</label>
+            <input type="checkbox" id="field2" name="field2">
+            <br><br>
+            <label for="field2">Tablet</label>
+            <input type="checkbox" id="field2" name="field2">
+            <br><br>
+                </div>
+                <div class="col-sm-4">
+
+            <label for="field2">Videogame console</label>
+            <input type="checkbox" id="field2" name="field2">
+            <br><br>
+            <label for="field2">E-book reader</label>
+            <input type="checkbox" id="field2" name="field2">
+            <br><br>
+            <label for="field2">Other</label>
+            <input type="checkbox" id="field2" name="field2">
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <button type="button" onclick="nextPage()">Next</button>
+        </div>
+          <!-- Pagina 4 della form -->
+          <div class="form-page" style="text-align: center;" id="page4">
+              <h4>Did you use them for work or entertainment?</h4>
+              <br><br>
+              <label for="field2">Work</label>
+            <input type="checkbox" id="field2" name="field2">
+            <br><br>
+            <label for="field2">Entertainment</label>
+            <input type="checkbox" id="field2" name="field2">
+            <br><br>
+            <label for="field2">Both</label>
+            <input type="checkbox" id="field2" name="field2">
+            <br><br><br>
               <button type="submit">Submit</button>
           </div>
       </form>
