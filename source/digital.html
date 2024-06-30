@@ -86,9 +86,11 @@
         }
         </script>
  -->
+ 
 </head>
 
 <body>
+  
 <!-- navbar in alto -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
@@ -178,13 +180,13 @@
           <div class="form-page" style="text-align: center;" id="page1">
               <h4 >How long have you used digital devices?</h4>
               <br><br>
-              <label for="field1">Date:</label>
+              <label for="digital_date">Date:</label>
               <input type="date" id="digital_date" name="digital_date" required>
               <br><br>
-              <label for="field1">From:</label>
+              <label for="digital_usage_from">From:</label>
               <input type="time" id="digital_usage_from" name="digital_usage_from" required />
               <br><br>
-              <label for="field1">To:</label>
+              <label for="digital_usage_to">To:</label>
               <input type="time" id="digital_usage_to" name="digital_usage_to" required />
               <br><br><br>
               <button type="button" onclick="nextPage()">Next</button>
@@ -197,26 +199,26 @@
                 <div class="row justify-content-between">
                   <div class="col-sm-4">
         
-              <label for="field2">No symptoms</label>
-              <input type="checkbox" id="symptom1" name="symptom1" onclick="updateConcatenatedValues('symptoms')">
+              <label for="symptom1">No symptoms</label>
+              <input type="checkbox" id="symptom1" name="symptoms" value="No symptoms" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
-              <label for="field2">Red eyes</label>
-              <input type="checkbox" id="symptom2" name="symptom2" onclick="updateConcatenatedValues('symptoms')">
+              <label for="symptom2">Red eyes</label>
+              <input type="checkbox" id="symptom2" name="symptoms" value="Red eyes" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
-              <label for="field2">Headache</label>
-              <input type="checkbox" id="symptom3" name="symptom3" onclick="updateConcatenatedValues('symptoms')">
+              <label for="symptpm3">Headache</label>
+              <input type="checkbox" id="symptom3" name="symptoms" value="Headache" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
               </div>
               <div class="col-sm-4">
 
-              <label for="field2">Back pain</label>
-              <input type="checkbox" id="symptom4" name="symptom4" onclick="updateConcatenatedValues('symptoms')">
+              <label for="symptom4">Back pain</label>
+              <input type="checkbox" id="symptom4" name="symptoms" value="Back pain" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
-              <label for="field2">Neck pain</label>
-              <input type="checkbox" id="symptom5" name="symptom5" onclick="updateConcatenatedValues('symptoms')">
+              <label for="symptom5">Neck pain</label>
+              <input type="checkbox" id="symptom5" name="symptoms" value="Neck pain" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
-              <label for="field2">Other</label>
-              <input type="checkbox" id="symptom6" name="symptom6" onclick="updateConcatenatedValues('symptoms')">
+              <label for="symptom6">Other</label>
+              <input type="checkbox" id="symptom6" name="symptoms" value="Other" onclick="updateConcatenatedValues('symptoms')">
                   </div>
                 </div>
               </div>
@@ -235,26 +237,26 @@
                    
                 <div class="col-sm-4">
       
-            <label for="field2">Smartphone</label>
-            <input type="checkbox" id="type1" name="type1" onclick="updateConcatenatedValues('devices_type')">
+            <label for="type1">Smartphone</label>
+            <input type="checkbox" id="type1" name="devices_type" value="Smartphone" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
-            <label for="field2">Computer</label>
-            <input type="checkbox" id="type2" name="type2" onclick="updateConcatenatedValues('devices_type')">
+            <label for="type2">Computer</label>
+            <input type="checkbox" id="type2" name="devices_type" value="Computer" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
-            <label for="field2">Tablet</label>
-            <input type="checkbox" id="type3" name="type3" onclick="updateConcatenatedValues('devices_type')">
+            <label for="type3">Tablet</label>
+            <input type="checkbox" id="type3" name="devices_type" value="Tablet" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
                 </div>
                 <div class="col-sm-4">
 
-            <label for="field2">Videogame console</label>
-            <input type="checkbox" id="type4" name="type4" onclick="updateConcatenatedValues('devices_type')">
+            <label for="type4">Videogame console</label>
+            <input type="checkbox" id="type4" name="devices_type" value="Videogame console" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
-            <label for="field2">E-book reader</label>
-            <input type="checkbox" id="type5" name="type5" onclick="updateConcatenatedValues('devices_type')">
+            <label for="type5">E-book reader</label>
+            <input type="checkbox" id="type5" name="devices_type" value="E-book reader" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
-            <label for="field2">Other</label>
-            <input type="checkbox" id="type6" name="type6" onclick="updateConcatenatedValues('devices_type')">
+            <label for="type6">Other</label>
+            <input type="checkbox" id="type6" name="devices_type" value="Other" onclick="updateConcatenatedValues('devices_type')">
                 </div>
               </div>
             </div>
@@ -265,44 +267,45 @@
           <div class="form-page" style="text-align: center;" id="page4">
               <h4>Did you use them for work or entertainment?</h4>
               <br><br>
-              <label for="field2">Work</label>
-            <input type="checkbox" id="usage1" name="usage1" onclick="updateConcatenatedValues('usage_for')">
+              <label for="usage1">Work</label>
+            <input type="checkbox" id="usage1" name="usage_for" value="Work" onclick="updateConcatenatedValues('usage_for')">
             <br><br>
-            <label for="field2">Entertainment</label>
-            <input type="checkbox" id="usage2" name="usage2" onclick="updateConcatenatedValues('usage_for')">
+            <label for="usage2">Entertainment</label>
+            <input type="checkbox" id="usage2" name="usage_for" value="Entertainment" onclick="updateConcatenatedValues('usage_for')">
             <br><br>
-            <label for="field2">Both</label>
-            <input type="checkbox" id="usage3" name="usage3" onclick="updateConcatenatedValues('usage_for')">
+            <label for="usage3">Both</label>
+            <input type="checkbox" id="usage3" name="usage_for" value="Both" onclick="updateConcatenatedValues('usage_for')">
             <br><br><br>
+
+            <!-- Campi nascosti per memorizzare i valori concatenati -->
+            <input type="hidden" id="symptoms_hidden" name="symptoms_hidden">
+            <input type="hidden" id="devices_type_hidden" name="devices_type_hidden">
+            <input type="hidden" id="usage_for_hidden" name="usage_for_hidden">
+
               <button type="submit">Submit</button>
           </div>
 
-          <!-- Campi nascosti per memorizzare i valori concatenati -->
-    <input type="hidden" id="symptoms" name="symptoms">
-    <input type="hidden" id="devices_type" name="devices_type">
-    <input type="hidden" id="usage_for" name="usage_for">
+          
       </form>
   </div>
-
-
-
 </div>
+
 <script src="script.js"></script>
 
 
 <script>
   function updateConcatenatedValues(group) {
-      var checkboxes = document.querySelectorAll(`input[name^="${group}"]`);
+      var checkboxes = document.querySelectorAll(`input[name="${group}"]`);
       var values = [];
       checkboxes.forEach((checkbox) => {
           if (checkbox.checked) {
-              values.push(checkbox.id);
+              values.push(checkbox.value);
           }
       });
-      document.getElementById(group).value = values.join(';');
+      document.getElementById(`${group}_hidden`).value = values.join(';');
   }
   </script>
 
-
+  
 </body>
 </html>

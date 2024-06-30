@@ -1,6 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] !="POST") { /* verifica richiesta post */
     header("Location: /digital.html");
+    exit;
 }
 else {
    /*  connessione */
@@ -8,7 +9,11 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=postgres
         user=postgres password=1234")
         or die('Could not connect: ' . pg_last_error());
 }
+
+
+
 ?>
+
 <!DOCTYPE html>
 <html>
     <head></head>
@@ -22,28 +27,38 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=postgres
                 devices_type char(40) NOT NULL,
                 usage_for char(30) NOT NULL */
 
-
-                /* MANCA LA DATE */
-
-               /*  $report_id = $_POST['report_id']; */
+               
                 $report_id=1;
                 $digital_date = $_POST['digital_date'];
-                $digital_usage_from = $_POST['digital_usage_from'];
-                $digital_usage_to= $_POST['digital_usage_to'];
-                $symptoms= $_POST['symptoms'];
-                $devices_type = $_POST['devices_type'];
-                $usage_for= $_POST['usage_for'];
+                $from = $_POST['digital_usage_from'];
+                $to= $_POST['digital_usage_to'];
+                $symptoms= $_POST['symptoms_hidden'];
+                $devices_type = $_POST['devices_type_hidden'];
+                $usage_for= $_POST['usage_for_hidden'];
                 
-                $q2 = "insert into digital values ($1, $2, $3, $4, $5, $6)";
+                // Formatta l'orario con la data fornita
+                $digital_usage_from = $digital_date . ' ' . $from;
+                $digital_usage_to = $digital_date . ' ' . $to;
+
+
+                $q2 = "insert into digital values ($1, $2, $3, $4, $5, $6, $7)";
                 $data=pg_query_params($dbconn, $q2,
-                        array($report_id, $digital_usage_from, $digital_usage_to,
+                        array($report_id, $digital_date, $digital_usage_from, $digital_usage_to,
                         $symptoms, $devices_type, $usage_for));
                 if ($data) {
                     
                   /* pagina a cui rimanda in caso di richiesta inviata */
-                     header("Location: okpage.html") ;
+                     header("Location: okpag.html") ;
                 }
-        
+                /* else {
+                    header("Location: /coffee.html");
+                     exit;
+                } */
+               /* qui non ci arriva */
+           /*  else {
+                header("Location: /coffee.html");
+                     exit;
+            } */
         }
     
 ?>

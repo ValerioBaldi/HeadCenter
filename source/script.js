@@ -26,14 +26,29 @@ summaryItems.forEach((item, index) => {
     });
 });
 
-// Gestisci il submit della form (puoi gestire qui l'invio dei dati tramite AJAX o altro)
-document.getElementById('multi-step-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    // Esempio di output dei dati
-    const formData = new FormData(event.target);
-    const formObject = {};
-    formData.forEach((value, key) => {
-        formObject[key] = value;
+/* document.getElementById('multi-step-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Previeni il comportamento predefinito di submit
+    
+    // Eseguire qui l'invio dei dati tramite AJAX o creare un oggetto FormData
+    const formData = new FormData(this); // 'this' fa riferimento al form stesso
+    
+    // Esempio di invio tramite fetch API
+    fetch('digital.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Errore durante l\'invio dei dati');
+        }
+        return response.text();
+    })
+    .then(data => {
+        console.log('Risposta dal server:', data);
+        // Gestisci la risposta dal server come desiderato
+    })
+    .catch(error => {
+        console.error('Errore:', error);
+        // Gestisci gli errori di invio
     });
-    console.log('Dati della form:', formObject);
-});
+}); */
