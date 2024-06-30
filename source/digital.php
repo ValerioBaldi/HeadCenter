@@ -27,6 +27,7 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=postgres
 
                /*  $report_id = $_POST['report_id']; */
                 $report_id=1;
+                $digital_date = $_POST['digital_date'];
                 $digital_usage_from = $_POST['digital_usage_from'];
                 $digital_usage_to= $_POST['digital_usage_to'];
                 $symptoms= $_POST['symptoms'];

@@ -1,5 +1,6 @@
 create table digital (
     report_id int NOT NULL,
+    digital_date date,
     digital_usage_from timestamp NOT NULL,
     digital_usage_to timestamp NOT NULL,
     symptoms char(100),
