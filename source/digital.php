@@ -22,14 +22,18 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=postgres
                 devices_type char(40) NOT NULL,
                 usage_for char(30) NOT NULL */
 
-                $report_id = $_POST['report_id'];
+
+                /* MANCA LA DATE */
+
+               /*  $report_id = $_POST['report_id']; */
+                $report_id=1;
                 $digital_usage_from = $_POST['digital_usage_from'];
                 $digital_usage_to= $_POST['digital_usage_to'];
                 $symptoms= $_POST['symptoms'];
                 $devices_type = $_POST['devices_type'];
                 $usage_for= $_POST['usage_for'];
                 
-                $q2 = "insert into iscrizione values ($1, $2, $3, $4, $5, $6)";
+                $q2 = "insert into digital values ($1, $2, $3, $4, $5, $6)";
                 $data=pg_query_params($dbconn, $q2,
                         array($report_id, $digital_usage_from, $digital_usage_to,
                         $symptoms, $devices_type, $usage_for));
