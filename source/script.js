@@ -26,18 +26,18 @@ summaryItems.forEach((item, index) => {
     });
 });
 
-/* document.getElementById('multi-step-form').addEventListener('submit', function(event) {
+document.getElementById('multi-step-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Previeni il comportamento predefinito di submit
     
     // Eseguire qui l'invio dei dati tramite AJAX o creare un oggetto FormData
     const formData = new FormData(this); // 'this' fa riferimento al form stesso
     
     // Esempio di invio tramite fetch API
-    fetch('digital.php', {
+    fetch('./digital.php', {
         method: 'POST',
-        body: formData
+        body: formData,
     })
-    .then(response => {
+   /*  .then(response => {
         if (!response.ok) {
             throw new Error('Errore durante l\'invio dei dati');
         }
@@ -50,5 +50,5 @@ summaryItems.forEach((item, index) => {
     .catch(error => {
         console.error('Errore:', error);
         // Gestisci gli errori di invio
-    });
-}); */
+    }); */
+});

@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="1 bootstrap/css/bootstrap.css" />
     <script src="1 bootstrap/js/bootstrap.bundle.js"></script>
-    <link rel="icon" href="2 images/senzabordo.png">
+    <!-- <link rel="icon" href="2 images/senzabordo.png"> -->
     <link rel = "stylesheet" href = "style.css" />
     <link rel = "stylesheet" href = "digital.css" />
     <title>Digital Devices Recording</title>
@@ -294,6 +294,7 @@
 
 
 <script>
+   
   function updateConcatenatedValues(group) {
       var checkboxes = document.querySelectorAll(`input[name="${group}"]`);
       var values = [];
@@ -304,6 +305,7 @@
       });
       document.getElementById(`${group}_hidden`).value = values.join(';');
   }
+ 
   </script>
 
   

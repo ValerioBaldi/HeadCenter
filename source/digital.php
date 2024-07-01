@@ -1,16 +1,18 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] !="POST") { /* verifica richiesta post */
-    header("Location: /digital.html");
+    header("Location: digital.html");
     exit;
 }
 else {
    /*  connessione */
 $dbconn = pg_connect("host=localhost port=5432 dbname=postgres
-        user=postgres password=1234")
+        user=postgres password=123456")
         or die('Could not connect: ' . pg_last_error());
 }
 
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "Request method is POST<br>";
+}
 
 ?>
 
