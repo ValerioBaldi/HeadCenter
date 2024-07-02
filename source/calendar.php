@@ -25,7 +25,7 @@
             foreach ($resultArr as $array) {
                 $events[] = array(
                     'id' => htmlspecialchars($array['rid']),
-                    'title' => 'Report ' . htmlspecialchars($array['rid']),
+                    'title' =>  ' ',//'Report ' . htmlspecialchars($array['rid']),
                     'start' => htmlspecialchars($array['starting_time']),
                     'end' => htmlspecialchars($array['ending_time']),
                     'color' => 'red'
@@ -119,9 +119,19 @@
                 editable: true,
                 navLinks: true, // can click day/week names to navigate views
                 
+                eventContent: function(arg) {
+                    let customDiv = document.createElement('div');
+                    customDiv.style.backgroundColor = arg.event.backgroundColor; 
+                    customDiv.style.borderRadius = '50%';
+                    customDiv.style.width = '10px'; 
+                    customDiv.style.height = '10px'; 
+                    customDiv.style.display = 'inline-block'; 
+                    return { domNodes: [customDiv] }; 
+                },
+
                 eventClick: function(info) {
-                    var reportLink = 'report.php?rid=' + info.event.id;
-                    var linkHtml = '<a href="' + reportLink + '">Clicca qui per vedere il tuo report</a>';
+                    var reportLink = 'reportHeadache.php?rid=' + info.event.id;
+                    var linkHtml = '<a href="' + reportLink + '">Click here to see the content of your report</a>';
                     var modalHtml = '<div class="modal" id="reportModal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Report</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">' + linkHtml + '</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div></div></div></div>';
 
                     var modalContainer = document.createElement('div');

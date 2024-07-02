@@ -33,14 +33,14 @@ create table headache (
     notes char(200)
 );
 
-create table user (
-    id int NOT NULL,
+create table users (
+    id int NOT NULL PRIMARY KEY,
     first_name char(50) NOT NULL,
     surname char(50) NOT NULL,
     age int NOT NULL
 );
 
-insert into user (id, first name, surname, age)
+insert into users (id, first name, surname, age)
 values (1, 'Mario', 'Rossi', 20);
 
 insert into headache (report_id, report_by, starting_time)
