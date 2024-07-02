@@ -1,32 +1,3 @@
-<?php
-$host = "localhost";
-$dbname = "postgres";
-$user = "postgres";
-$password = "postgres";
-
-$conn = pg_connect("host=$host dbname=$dbname user=$user password=$password");
-
-if (!$conn) {
-    die("Connection failed: " . pg_last_error());
-}
-
-// Query per recuperare i dati
-$queryHeadaches = "SELECT rid AS rid, starting_time AS start, ending_time AS end FROM headache_report";
-$queryDigital = "SELECT rid AS rid, starting_time AS start, ending_time AS end FROM digital_report";
-$querySleeping = "SELECT rid AS rid, starting_time AS start, ending_time AS end FROM sleeping_report";
-
-$resultHeadaches = pg_query($conn, $queryHeadaches);
-$resultDigital = pg_query($conn, $queryDigital);
-$resultSleeping = pg_query($conn, $querySleeping);
-
-if (!$result) {
-    echo "An error occurred.\n";
-    exit;
-}
-
-pg_close($conn);
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -43,8 +14,34 @@ pg_close($conn);
 </head>
 <body>
 
-    <!-- navbar in alto -->
-        <nav class="navbar navbar-expand-lg bg-light">
+    <?php
+        $dbconnect = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=postgres") or die('could not connect: ' . pg_last_error());
+        $query = "SELECT report_id as rid, starting_time, ending_time FROM headache";
+        $result = pg_query($dbconnect, $query) or die('query failed: ' . pg_last_error());
+        $resultArr = pg_fetch_all($result);
+
+        if ($resultArr) {
+            $events = array();
+            foreach ($resultArr as $array) {
+                $events[] = array(
+                    'id' => htmlspecialchars($array['rid']),
+                    'title' => 'Report ' . htmlspecialchars($array['rid']),
+                    'start' => htmlspecialchars($array['starting_time']),
+                    'end' => htmlspecialchars($array['ending_time']),
+                    'color' => 'red'
+                );
+            }
+            echo '<script>var events = ' . json_encode($events) . ';</script>';
+        } else {
+            echo '<script>var events = [];</script>';
+        }
+
+        pg_free_result($result);
+        pg_close($dbconnect);
+    ?>
+
+     <!-- navbar in alto -->
+     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -103,18 +100,11 @@ pg_close($conn);
     <!-- logged in as -->
     <h6 class="bottom-left-logged">Logged in as:</h6>
 
+
     <div id='calendar'></div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
-
-            /*var headacheReports= [
-                <?php 
-                foreach($headache_report as $report){
-                    echo "{start:  '" . $report['start'] . "', end: '" . $report['end'] . "', id: '" . $report['rid'] ."'},";
-                }
-                ?>
-            ];*/
             
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
@@ -124,20 +114,27 @@ pg_close($conn);
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
+                events: events,
                 selectable: true,
                 editable: true,
                 navLinks: true, // can click day/week names to navigate views
-                dateClick: function(info) {
-                    alert('Clicked on: ' + info.dateStr);
+                
+                eventClick: function(info) {
+                    var reportLink = 'report.php?rid=' + info.event.id;
+                    var linkHtml = '<a href="' + reportLink + '">Clicca qui per vedere il tuo report</a>';
+                    var modalHtml = '<div class="modal" id="reportModal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Report</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">' + linkHtml + '</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div></div></div></div>';
+
+                    var modalContainer = document.createElement('div');
+                    modalContainer.innerHTML = modalHtml;
+                    document.body.appendChild(modalContainer);
+
+                    var modal = new bootstrap.Modal(document.getElementById('reportModal'));
+                    modal.show();
+
+                    modalContainer.addEventListener('hidden.bs.modal', function() {
+                        document.body.removeChild(modalContainer);
+                    });
                 }
-                /*dayCellDidMount: function(info) {
-                    for (var i = 0; i < headacheReports.length; i++) {
-                        var report = new Date(datesToHighlight[i]);
-                        if (info.date.getTime() === dateToHighlight.getTime()) {
-                            info.el.style.backgroundColor = 'lightblue';
-                        }
-                    }
-                },*/
             });
             calendar.render();
         });
