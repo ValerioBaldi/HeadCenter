@@ -36,7 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     repercussions char(100),
                     symptoms char(100),
                     notes char(200)
-                );  */
+                ); 
+                
+                name="ache_position_hidden">
+                name="ache_type_hidden">
+                name="repercussions_hidden">
+                
+                
+                */
 
                
                 $report_id=1;
