@@ -193,16 +193,16 @@
               <h4 >When has it started?</h4>
               <br><br>
               <label for="digital_date">Date:</label>
-              <input type="date" id="digital_date" name="digital_date" required>
+              <input type="date" id="headache_date" name="headache_date" required>
               <br><br>
-              <label for="digital_usage_from">From:</label>
-              <input type="time" id="digital_usage_from" name="digital_usage_from" required />
+              <label for="starting_time">From:</label>
+              <input type="time" id="starting_time" name="starting_time" required />
               <br><br>
-              <label for="digital_usage_to">To:</label>
-              <input type="time" id="digital_usage_to" name="digital_usage_to" />
+              <label for="ending_time">To:</label>
+              <input type="time" id="ending_time" name="ending_time" />
               <br><br>
-              <label for="stillgoing">Is it still going?</label>
-              <input type="checkbox" id="stillgoing" name="stillgoing" value="true">
+              <label for="still_going">Is it still going?</label>
+              <input type="checkbox" id="still_going" name="still_going" value="true">
               <br><br><br>
               <button type="button" onclick="nextPage()">Next</button>
           </div>
@@ -247,13 +247,13 @@
             <h4>How much does it hurt?</h4>
             <br><br>
           <label for="usage1">Low</label>
-          <input type="radio" id="usage1" name="hurt" value="Low">
+          <input type="radio" id="ache1" name="ache_intensity" value="Low">
           <br><br>
           <label for="usage2">Medium</label>
-          <input type="radio" id="usage2" name="hurt" value="Medium">
+          <input type="radio" id="ache2" name="ache_intensity" value="Medium">
           <br><br>
           <label for="usage3">High</label>
-          <input type="radio" id="usage3" name="hurt" value="High">
+          <input type="radio" id="ache3" name="ache_intensity" value="High">
           <br><br><br>
 
           <button type="button" onclick="nextPage()">Next</button>
@@ -295,18 +295,18 @@
                 <div class="col-sm-4">
       
             <label for="symptom1">Yes</label>
-            <input type="radio" id="symptom1" name="painkiller" value="true">
+            <input type="radio" id="symptom1" name="painkiller" value="true" onclick="updateConcatenatedValues('painkillers')">
             <br><br>
             </div>
             <div class="col-sm-4">
 
             <label for="symptom4">No</label>
-            <input type="radio" id="symptom4" name="painkiller" value="false">
+            <input type="radio" id="symptom4" name="painkiller" value="false" onclick="updateConcatenatedValues('painkillers')">
             <br><br>
                </div>
               </div>
             </div>
-            <textarea rows="5" columns="25" placeholder="If yes, write which one"></textarea> 
+            <textarea rows="5" columns="25" placeholder="If yes, write which one" oninput="updateConcatenatedValues('painkillers')"></textarea> 
             <br><br><br>
             <button type="button" onclick="nextPage()">Next</button>
         </div>
@@ -328,7 +328,7 @@
           <br><br>
           <label for="usage2">Add other:</label>
           <br><br>
-          <textarea rows="5" columns="25" placeholder="..."></textarea> 
+          <textarea rows="5" columns="25" placeholder="..." oninput="updateConcatenatedValues('repercussions')"></textarea> 
           <br><br><br>
 
           <button type="button" onclick="nextPage()">Next</button>
@@ -337,7 +337,7 @@
         <div class="form-page" style="text-align: center;" id="page7">
             <h4>Did you feel any other symptoms?</h4>
             <br><br>
-          <textarea rows="5" columns="25" placeholder="..."></textarea> 
+          <textarea rows="5" columns="25" placeholder="..." name="symptoms"></textarea> 
           <br><br><br>
 
           <button type="button" onclick="nextPage()">Next</button>
@@ -346,7 +346,7 @@
         <div class="form-page" style="text-align: center;" id="page8">
             <h4>Add a note</h4>
             <br><br>
-          <textarea rows="5" columns="25" placeholder="..."></textarea> 
+          <textarea rows="5" columns="25" placeholder="..." name="notes"></textarea> 
           <br><br><br>
 
           <button type="button" onclick="nextPage()">Next</button>
@@ -360,6 +360,7 @@
             <!-- Campi nascosti per memorizzare i valori concatenati -->
             <input type="hidden" id="ache_position_hidden" name="ache_position_hidden">
             <input type="hidden" id="ache_type_hidden" name="ache_type_hidden">
+            <input type="hidden" id="painkillers_hidden" name="painkillers_hidden">
             <input type="hidden" id="repercussions_hidden" name="repercussions_hidden">
 
               <button type="submit">Submit</button>
@@ -376,11 +377,18 @@
 <script>
    
   function updateConcatenatedValues(group) {
-      var checkboxes = document.querySelectorAll(`input[name="${group}"]`);
+      var inputs = document.querySelectorAll(`input[name="${group}"]`);
+      var textarea = document.querySelector(`textarea[oninput="updateConcatenatedValues('${group}')"]`);
       var values = [];
-      checkboxes.forEach((checkbox) => {
-          if (checkbox.checked) {
-              values.push(checkbox.value);
+
+      if (textarea.value) {
+          values.push(textarea.value);
+      }
+
+
+      inputs.forEach((input) => {
+          if (input.checked) {
+              values.push(input.value);
           }
       });
       document.getElementById(`${group}_hidden`).value = values.join(';');

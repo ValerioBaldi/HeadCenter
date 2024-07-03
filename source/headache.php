@@ -37,32 +37,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     symptoms char(100),
                     notes char(200)
                 ); 
-                
                 name="ache_position_hidden">
                 name="ache_type_hidden">
                 name="repercussions_hidden">
                 
-                
                 */
 
                
-                $report_id=1;
-                $digital_date = $_POST['digital_date'];
-                $from = $_POST['digital_usage_from'];
-                $to= $_POST['digital_usage_to'];
-                $symptoms= $_POST['symptoms_hidden'];
-                $devices_type = $_POST['devices_type_hidden'];
-                $usage_for= $_POST['usage_for_hidden'];
+                $report_id = 1;
+                $report_by = 1;
+                $headache_date = $_POST['headache_date'];
+                $from = $_POST['starting_time'];
+                $to = $_POST['ending_time'];
+                $still_going = $_POST["still_going"];
+                $ache_position = $_POST['ache_position_hidden'];
+                $ache_intensity = $_POST['ache_intensity'];
+                $ache_type = $_POST['ache_type_hidden'];
+                $painkillers = $_POST['painkillers_hidden'];
+                $repercussions = $_POST['repercussions_hidden'];
+                $symptoms = $_POST['symptoms'];
+                $notes = $_POST['notes'];
                 
                 // Formatta l'orario con la data fornita
-                $digital_usage_from = $digital_date . ' ' . $from;
-                $digital_usage_to = $digital_date . ' ' . $to;
+                $starting_time = $headache_date . ' ' . $from;
+                $ending_time = $headache_date . ' ' . $to;
 
 
-                $q2 = "insert into digital values ($1, $2, $3, $4, $5, $6, $7)";
+                $q2 = "insert into headache values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)";
                 $data=pg_query_params($dbconn, $q2,
-                        array($report_id, $digital_date, $digital_usage_from, $digital_usage_to,
-                        $symptoms, $devices_type, $usage_for));
+                        array($report_id, $report_by, $headache_date, $starting_time,
+                        $ending_time, $still_going, $ache_position, $ache_intensity,
+                        $ache_type, $painkillers, $repercussions, $symptoms, $notes));
                 if ($data) {
                     
                   /* pagina a cui rimanda in caso di richiesta inviata */
