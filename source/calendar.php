@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario 2020-2025</title>
+    <title>Calendar</title>
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
     <link rel="stylesheet" href="1 bootstrap/css/bootstrap.css" />
@@ -28,16 +28,53 @@
                     'title' =>  ' ',//'Report ' . htmlspecialchars($array['rid']),
                     'start' => htmlspecialchars($array['starting_time']),
                     'end' => htmlspecialchars($array['ending_time']),
-                    'color' => 'red'
+                    'color' => 'red',
+                    'type'  => 'Headache'
                 );
             }
-            echo '<script>var events = ' . json_encode($events) . ';</script>';
-        } else {
-            echo '<script>var events = [];</script>';
-        }
+        } 
+        
 
         pg_free_result($result);
+
+        $query2 = "SELECT report_id as rid, digital_usage_from as starting_time, digital_usage_to as ending_time FROM digital";  // Modifica con il nome della tua tabella
+        $result2 = pg_query($dbconnect, $query2) or die('query2 failed: ' . pg_last_error());
+        $resultArr2 = pg_fetch_all($result2);
+
+        if ($resultArr2) {
+            foreach ($resultArr2 as $array) {
+                $events[] = array(
+                    'id' => htmlspecialchars($array['rid']),
+                    'title' => '', // Imposta il titolo su una stringa vuota
+                    'start' => htmlspecialchars($array['starting_time']),
+                    'end' => htmlspecialchars($array['ending_time']),
+                    'color' => 'green',
+                    'type'  => 'Digital'
+                );
+            }
+        }
+        pg_free_result($result2);
+
+        $query3 = "SELECT report_id as rid, sleeping_time_from as starting_time, sleeping_time_to as ending_time FROM sleep";  // Modifica con il nome della tua tabella
+        $result3 = pg_query($dbconnect, $query3) or die('query2 failed: ' . pg_last_error());
+        $resultArr3 = pg_fetch_all($result3);
+
+        if ($resultArr3) {
+            foreach ($resultArr3 as $array) {
+                $events[] = array(
+                    'id' => htmlspecialchars($array['rid']),
+                    'title' => '', // Imposta il titolo su una stringa vuota
+                    'start' => htmlspecialchars($array['starting_time']),
+                    'end' => htmlspecialchars($array['ending_time']),
+                    'color' => 'blue',
+                    'type'  => 'Sleep'
+                );
+            }
+        }
+        pg_free_result($result3);
         pg_close($dbconnect);
+
+        echo '<script>var events = ' . json_encode($events) . ';</script>';
     ?>
 
      <!-- navbar in alto -->
@@ -130,7 +167,7 @@
                 },
 
                 eventClick: function(info) {
-                    var reportLink = 'reportHeadache.php?rid=' + info.event.id;
+                    var reportLink = 'report' + info.event.extendedProps.type +'.php?rid=' + info.event.id;
                     var linkHtml = '<a href="' + reportLink + '">Click here to see the content of your report</a>';
                     var modalHtml = '<div class="modal" id="reportModal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Report</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">' + linkHtml + '</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div></div></div></div>';
 

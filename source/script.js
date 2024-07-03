@@ -37,6 +37,10 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
         method: 'POST',
         body: formData,
     })
+    fetch('./Download.php', {
+        method:'POST',
+        body: formData,
+    })
    /*  .then(response => {
         if (!response.ok) {
             throw new Error('Errore durante l\'invio dei dati');
