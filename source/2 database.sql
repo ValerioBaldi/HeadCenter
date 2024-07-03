@@ -22,6 +22,7 @@ create table sleep (
 create table headache (
     report_id int NOT NULL PRIMARY KEY,
     report_by int NOT NULL,
+    headache_date date,
     starting_time timestamp NOT NULL,
     ending_time timestamp,
     still_going boolean,
