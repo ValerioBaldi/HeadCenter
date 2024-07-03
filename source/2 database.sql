@@ -24,6 +24,7 @@ create table headache (
     report_by int NOT NULL,
     starting_time timestamp NOT NULL,
     ending_time timestamp,
+    still_going boolean,
     ache_position char(20),
     ache_intensity char(10),
     ache_type char(20),

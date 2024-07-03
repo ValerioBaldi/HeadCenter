@@ -15,7 +15,7 @@
 <body>
 
     <?php
-        $dbconnect = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=postgres") or die('could not connect: ' . pg_last_error());
+        $dbconnect = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=123456") or die('could not connect: ' . pg_last_error());
         $query = "SELECT report_id as rid, starting_time, ending_time FROM headache";
         $result = pg_query($dbconnect, $query) or die('query failed: ' . pg_last_error());
         $resultArr = pg_fetch_all($result);
