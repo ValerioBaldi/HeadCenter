@@ -215,25 +215,25 @@
                   <div class="col-sm-4">
         
               <label for="symptom1">Right forehead</label>
-              <input type="checkbox" id="symptom1" name="symptoms" value="Right forehead" onclick="updateConcatenatedValues('ache_position')">
+              <input type="checkbox" id="symptom1" name="ache_position" value="Right forehead" onclick="updateConcatenatedValues('ache_position')">
               <br><br>
               <label for="symptom2">Neck left</label>
-              <input type="checkbox" id="symptom2" name="symptoms" value="Neck left" onclick="updateConcatenatedValues('ache_position')">
+              <input type="checkbox" id="symptom2" name="ache_position" value="Neck left" onclick="updateConcatenatedValues('ache_position')">
               <br><br>
               <label for="symptpm3">Temples</label>
-              <input type="checkbox" id="symptom3" name="symptoms" value="Temples" onclick="updateConcatenatedValues('ache_position')">
+              <input type="checkbox" id="symptom3" name="ache_position" value="Temples" onclick="updateConcatenatedValues('ache_position')">
               <br><br>
               </div>
               <div class="col-sm-4">
 
               <label for="symptom4">Left forehead</label>
-              <input type="checkbox" id="symptom4" name="symptoms" value="Left forehead" onclick="updateConcatenatedValues('ache_position')">
+              <input type="checkbox" id="symptom4" name="ache_position" value="Left forehead" onclick="updateConcatenatedValues('ache_position')">
               <br><br>
               <label for="symptom5">Neck right</label>
-              <input type="checkbox" id="symptom5" name="symptoms" value="Neck right" onclick="updateConcatenatedValues('ache_position')">
+              <input type="checkbox" id="symptom5" name="ache_position" value="Neck right" onclick="updateConcatenatedValues('ache_position')">
               <br><br>
               <label for="symptom6">Hairband area</label>
-              <input type="checkbox" id="symptom6" name="symptoms" value="Hairband area" onclick="updateConcatenatedValues('ache_position')">
+              <input type="checkbox" id="symptom6" name="ache_position" value="Hairband area" onclick="updateConcatenatedValues('ache_position')">
                   </div>
                 </div>
               </div>
@@ -267,19 +267,19 @@
                 <div class="col-sm-4">
       
             <label for="symptom1">Constrictive</label>
-            <input type="checkbox" id="symptom1" name="symptoms" value="Constrictive" onclick="updateConcatenatedValues('ache_type')">
+            <input type="checkbox" id="symptom1" name="ache_type" value="Constrictive" onclick="updateConcatenatedValues('ache_type')">
             <br><br>
             <label for="symptom2">Pulsating</label>
-            <input type="checkbox" id="symptom2" name="symptoms" value="Pulsating" onclick="updateConcatenatedValues('ache_type')">
+            <input type="checkbox" id="symptom2" name="ache_type" value="Pulsating" onclick="updateConcatenatedValues('ache_type')">
             <br><br>
             </div>
             <div class="col-sm-4">
 
             <label for="symptom4">Nevralgic</label>
-            <input type="checkbox" id="symptom4" name="symptoms" value="Nevralgic" onclick="updateConcatenatedValues('ache_type')">
+            <input type="checkbox" id="symptom4" name="ache_type" value="Nevralgic" onclick="updateConcatenatedValues('ache_type')">
             <br><br>
             <label for="symptom5">Piercing</label>
-            <input type="checkbox" id="symptom5" name="symptoms" value="Piercing" onclick="updateConcatenatedValues('ache_type')">
+            <input type="checkbox" id="symptom5" name="ache_type" value="Piercing" onclick="updateConcatenatedValues('ache_type')">
             <br><br><br>
                </div>
               </div>
@@ -295,18 +295,18 @@
                 <div class="col-sm-4">
       
             <label for="symptom1">Yes</label>
-            <input type="radio" id="symptom1" name="painkiller" value="true" onclick="updateConcatenatedValues('painkillers')">
+            <input type="radio" id="symptom1" name="painkillers" value="true" onclick="updateConcatenatedValues('painkillers')">
             <br><br>
             </div>
             <div class="col-sm-4">
 
             <label for="symptom4">No</label>
-            <input type="radio" id="symptom4" name="painkiller" value="false" onclick="updateConcatenatedValues('painkillers')">
+            <input type="radio" id="symptom4" name="painkillers" value="false" onclick="updateConcatenatedValues('painkillers')">
             <br><br>
                </div>
               </div>
             </div>
-            <textarea rows="5" columns="25" placeholder="If yes, write which one" oninput="updateConcatenatedValues('painkillers')"></textarea> 
+            <textarea rows="5" columns="25" placeholder="If yes, write which one" name="painkillers" oninput="updateConcatenatedValues('painkillers')"></textarea> 
             <br><br><br>
             <button type="button" onclick="nextPage()">Next</button>
         </div>
@@ -315,20 +315,20 @@
             <h4>Had your pain lead to any repercussion?</h4>
             <br><br>
             <label for="usage1">Worse performance at work/school</label>
-          <input type="checkbox" id="usage1" name="usage_for" value="Worse performance at work/school" onclick="updateConcatenatedValues('repercussions')">
+          <input type="checkbox" id="usage1" name="repercussions" value="Worse performance at work/school" onclick="updateConcatenatedValues('repercussions')">
           <br><br>
           <label for="usage2">Couldn't work/study</label>
-          <input type="checkbox" id="usage2" name="usage_for" value="Couldn't work/study" onclick="updateConcatenatedValues('repercussions')">
+          <input type="checkbox" id="usage2" name="repercussions" value="Couldn't work/study" onclick="updateConcatenatedValues('repercussions')">
           <br><br>
           <label for="usage3">Costricted to rest</label>
-          <input type="checkbox" id="usage3" name="usage_for" value="Costricted to rest" onclick="updateConcatenatedValues('repercussions')">
+          <input type="checkbox" id="usage3" name="repercussions" value="Costricted to rest" onclick="updateConcatenatedValues('repercussions')">
           <br><br>
           <label for="usage2">Bad quality of sleep</label>
-          <input type="checkbox" id="usage2" name="usage_for" value="Bad quality of sleep" onclick="updateConcatenatedValues('repercussions')">
+          <input type="checkbox" id="usage2" name="repercussions" value="Bad quality of sleep" onclick="updateConcatenatedValues('repercussions')">
           <br><br>
           <label for="usage2">Add other:</label>
           <br><br>
-          <textarea rows="5" columns="25" placeholder="..." oninput="updateConcatenatedValues('repercussions')"></textarea> 
+          <textarea rows="5" columns="25" placeholder="..." name="repercussions" oninput="updateConcatenatedValues('repercussions')"></textarea> 
           <br><br><br>
 
           <button type="button" onclick="nextPage()">Next</button>
@@ -376,23 +376,24 @@
 
 <script>
    
-  function updateConcatenatedValues(group) {
-      var inputs = document.querySelectorAll(`input[name="${group}"]`);
-      var textarea = document.querySelector(`textarea[oninput="updateConcatenatedValues('${group}')"]`);
-      var values = [];
+   function updateConcatenatedValues(group) {
+    var inputs = document.querySelectorAll(`input[name="${group}"]`);
+    var textarea = document.querySelector(`textarea[oninput="updateConcatenatedValues('${group}')"]`);
+    var values = [];
 
-      if (textarea.value) {
-          values.push(textarea.value);
-      }
+    if (textarea && textarea.value) {
+        values.push(textarea.value);
+    }
 
+    inputs.forEach((input) => {
+        if (input.checked) {
+            values.push(input.value);
+        }
+    });
 
-      inputs.forEach((input) => {
-          if (input.checked) {
-              values.push(input.value);
-          }
-      });
-      document.getElementById(`${group}_hidden`).value = values.join(';');
-  }
+    document.getElementById(`${group}_hidden`).value = values.join(';');
+}
+
  
   </script>
 
