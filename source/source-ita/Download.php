@@ -4,7 +4,7 @@
         exit;
     }
     else {
-        require('../fpdf186/fpdf.php');
+        require('../../fpdf186/fpdf.php');
 
         $type=$_POST['type'];
         $start=$_POST['starting_date'];
@@ -25,17 +25,17 @@
 
             while ($row = pg_fetch_assoc($result)) {
                 $pdf->SetFont('Arial', '', 12);
-                $pdf->Cell(0, 10, 'From: ' . $row['starting_time'], 0, 1);
-                $pdf->Cell(0, 10, 'To: ' . $row['ending_time'], 0, 1);
-                $pdf->Cell(0, 10, 'Symptoms: ' . $row['symptoms'], 0, 1);
-                $pdf->Cell(0, 10, 'Ache Position: ' . $row['ache_position'], 0, 1);
-                $pdf->Cell(0, 10, 'Ache Intensity: ' . $row['ache_intensity'], 0, 1);
-                $pdf->Cell(0, 10, 'Ache Type: ' . $row['ache_type'], 0, 1);
-                $pdf->Cell(0, 10, 'Painkillers: ' . $row['painkillers'], 0, 1);
-                $pdf->Cell(0, 10, 'Repercussions: ' . $row['repercussions'], 0, 1);
+                $pdf->Cell(0, 10, 'Da: ' . $row['starting_time'], 0, 1);
+                $pdf->Cell(0, 10, 'A: ' . $row['ending_time'], 0, 1);
+                $pdf->Cell(0, 10, 'Sintomi: ' . $row['symptoms'], 0, 1);
+                $pdf->Cell(0, 10, 'Posizione: ' . $row['ache_position'], 0, 1);
+                $pdf->Cell(0, 10, 'Intensità: ' . $row['ache_intensity'], 0, 1);
+                $pdf->Cell(0, 10, 'Tipo di dolore: ' . $row['ache_type'], 0, 1);
+                $pdf->Cell(0, 10, 'Antidolorifici: ' . $row['painkillers'], 0, 1);
+                $pdf->Cell(0, 10, 'Ripercussioni: ' . $row['repercussions'], 0, 1);
                 $pdf->Ln(10);
             }
-            $pdf->Output('D', $start."".$type."".'_report.pdf');
+            $pdf->Output('D', $start."".$type."".'_registrazione.pdf');
         }
         elseif($type=="sleep"){
             $query = "SELECT sleeping_time_from, sleeping_time_to, coffee_cups, sleeping_rate, awaken_during_sleep
@@ -52,14 +52,14 @@
 
             while ($row = pg_fetch_assoc($result)) {
                 $pdf->SetFont('Arial', '', 12);
-                $pdf->Cell(0, 10, 'From: ' . $row['sleeping_time_from'], 0, 1);
-                $pdf->Cell(0, 10, 'To: ' . $row['sleeping_time_to'], 0, 1);
-                $pdf->Cell(0, 10, 'Coffee cups: ' . $row['coffee_cups'], 0, 1);
-                $pdf->Cell(0, 10, 'Sleeping rate: ' . $row['sleeping_rate'], 0, 1);
-                $pdf->Cell(0, 10, 'Awaken during sleep: ' . $row['awaken_during_sleep'], 0, 1);
+                $pdf->Cell(0, 10, 'Da: ' . $row['sleeping_time_from'], 0, 1);
+                $pdf->Cell(0, 10, 'A: ' . $row['sleeping_time_to'], 0, 1);
+                $pdf->Cell(0, 10, 'Tazze di caffé: ' . $row['coffee_cups'], 0, 1);
+                $pdf->Cell(0, 10, 'Qualità del sonno: ' . $row['sleeping_rate'], 0, 1);
+                $pdf->Cell(0, 10, 'Risveglio durante il sonno: ' . $row['awaken_during_sleep'], 0, 1);
                 $pdf->Ln(10);
             }
-            $pdf->Output('D', $start."".$type."".'_report.pdf');
+            $pdf->Output('D', $start."".$type."".'_registrazione.pdf');
         }
         elseif($type=="digital"){
             $query = "SELECT digital_usage_from, digital_usage_to, symptoms, devices_type, usage_for
@@ -76,14 +76,14 @@
 
             while ($row = pg_fetch_assoc($result)) {
                 $pdf->SetFont('Arial', '', 12);
-                $pdf->Cell(0, 10, 'From: ' . $row['digital_usage_from'], 0, 1);
-                $pdf->Cell(0, 10, 'To: ' . $row['digital_usage_to'], 0, 1);
-                $pdf->Cell(0, 10, 'Symptoms: ' . $row['symptoms'], 0, 1);
-                $pdf->Cell(0, 10, 'Devices Type: ' . $row['devices_type'], 0, 1);
-                $pdf->Cell(0, 10, 'Usage For: ' . $row['usage_for'], 0, 1);
+                $pdf->Cell(0, 10, 'Da: ' . $row['digital_usage_from'], 0, 1);
+                $pdf->Cell(0, 10, 'A: ' . $row['digital_usage_to'], 0, 1);
+                $pdf->Cell(0, 10, 'Sintomi: ' . $row['symptoms'], 0, 1);
+                $pdf->Cell(0, 10, 'Tipi di dispositivo: ' . $row['devices_type'], 0, 1);
+                $pdf->Cell(0, 10, 'Utilizzo: ' . $row['usage_for'], 0, 1);
                 $pdf->Ln(10);
             }
-            $pdf->Output('D', $start."".$type."".'_report.pdf');
+            $pdf->Output('D', $start."".$type."".'_registrazione.pdf');
         }
         else{
             echo "<h1>Error in the post</h1>";
