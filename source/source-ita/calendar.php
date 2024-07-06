@@ -16,7 +16,7 @@
 <body>
 
     <?php
-        $dbconnect = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=123456") or die('could not connect: ' . pg_last_error());
+        $dbconnect = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=postgres") or die('could not connect: ' . pg_last_error());
         $query = "SELECT report_id as rid, starting_time, ending_time FROM headache";
         $result = pg_query($dbconnect, $query) or die('query failed: ' . pg_last_error());
         $resultArr = pg_fetch_all($result);
@@ -88,6 +88,12 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="headache.html">Registra mal di testa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Download.html">Scarica una registrazione</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="coffee.html">Registra qualità del sonno</a>

@@ -24,6 +24,12 @@
                     <a class="nav-link" href="home.html">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="headache.html">Headache recordings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Download.html">Download reports</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="coffee.html">Coffee recordings</a>
                 </li>
                 <li class="nav-item">

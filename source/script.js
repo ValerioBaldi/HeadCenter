@@ -10,6 +10,10 @@ function showPage(pageNumber) {
     formPages[pageNumber - 1].classList.add('active');
     summaryItems[pageNumber - 1].classList.add('active');
     
+    if (pageNumber === 9) {
+        showSummary();
+    }
+
     currentPage = pageNumber;
 }
 
@@ -60,3 +64,17 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
         // Gestisci gli errori di invio
     }); */
 });
+
+function showSummary() {
+    document.getElementById('summary-headache-date').innerText = `Date: ${document.getElementById('headache_date').value}`;
+    document.getElementById('summary-starting-time').innerText = `From: ${document.getElementById('starting_time').value}`;
+    document.getElementById('summary-ending-time').innerText = `To: ${document.getElementById('ending_time').value}`;
+    document.getElementById('summary-still-going').innerText = `Still going: ${document.getElementById('still_going').checked ? 'Yes' : 'No'}`;
+    document.getElementById('summary-ache-position').innerText = `Pain Position: ${document.getElementById('ache_position_hidden').value}`;
+    document.getElementById('summary-ache-intensity').innerText = `Pain Intensity: ${document.querySelector('input[name="ache_intensity"]:checked').value}`;
+    document.getElementById('summary-ache-type').innerText = `Pain Type: ${document.getElementById('ache_type_hidden').value}`;
+    document.getElementById('summary-painkillers').innerText = `Painkillers: ${document.getElementById('painkillers_hidden').value}`;
+    document.getElementById('summary-repercussions').innerText = `Repercussions: ${document.getElementById('repercussions_hidden').value}`;
+    document.getElementById('summary-symptoms').innerText = `Symptoms: ${document.querySelector('textarea[name="symptoms"]').value}`;
+    document.getElementById('summary-notes').innerText = `Notes: ${document.querySelector('textarea[name="notes"]').value}`;
+};

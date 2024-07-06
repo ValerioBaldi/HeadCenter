@@ -103,6 +103,12 @@
                 <a class="nav-link" href="home.html">Home</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="headache.html">Registra mal di testa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Download.html">Scarica una registrazione</a>
+            </li>
+              <li class="nav-item">
                 <a class="nav-link" href="coffee.html">Registra qualità del sonno</a>
               </li>
               <li class="nav-item">
@@ -355,7 +361,19 @@
           <div class="form-page" style="text-align: center;" id="page9">
               <h4>Sommario</h4>
               <br><br>
-              <br><br><br>
+              <div id="summary-content">
+                <p id="summary-headache-date"></p>
+                <p id="summary-starting-time"></p>
+                <p id="summary-ending-time"></p>
+                <p id="summary-still-going"></p>
+                <p id="summary-ache-position"></p>
+                <p id="summary-ache-intensity"></p>
+                <p id="summary-ache-type"></p>
+                <p id="summary-painkillers"></p>
+                <p id="summary-repercussions"></p>
+                <p id="summary-symptoms"></p>
+                <p id="summary-notes"></p>
+            </div>
 
             <!-- Campi nascosti per memorizzare i valori concatenati -->
             <input type="hidden" id="ache_position_hidden" name="ache_position_hidden">
@@ -371,7 +389,7 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script src="../script.js"></script>
 
 
 <script>
