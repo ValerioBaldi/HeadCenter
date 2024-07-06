@@ -2,7 +2,8 @@
 body {
 
     background-repeat: no-repeat;
-    background-color: white ;
+    background-image: url("2 images/sfondo1.jpg");
+    /* background-color: white ; */
     height: 400px;
     background-position: center;
     background-size: cover;
@@ -44,7 +45,7 @@ body {
 
 /*logo*/
 .top-left-logo {
-    position: fixed;
+    position: absolute;
     top: 15%; /* Spostato in basso */
     left: 10%; /* Spostato a sinistra */
     width: 10%; 
@@ -52,12 +53,11 @@ body {
 }
     /*characters*/
 
-  /*   a {
-
+    .container2 {
+        text-align: center;
         text-decoration: none;
-        font-size: 18px;
-        color:rgb(11, 244, 11);
-    } */
+        font-size: 20px;
+    }
 
 
     /*fine caratteri*/
