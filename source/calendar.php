@@ -162,6 +162,10 @@
                 editable: true,
                 navLinks: true, // can click day/week names to navigate views
                 
+                dayCellDidMount: function(arg) {
+                    arg.el.style.backgroundColor = 'white'; 
+                },
+
                 eventContent: function(arg) {
                     let customDiv = document.createElement('div');
                     customDiv.style.backgroundColor = arg.event.backgroundColor; 
