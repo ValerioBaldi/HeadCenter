@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] !="POST") { /* verifica richiesta post */
 else {
    /*  connessione */
 $dbconn = pg_connect("host=localhost port=5432 dbname=postgres
-        user=postgres password=123456")
+        user=postgres password=postgres")
         or die('Could not connect: ' . pg_last_error());
 }
 
