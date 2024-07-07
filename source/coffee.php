@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php
             if($dbconn) {
                 $report_id=1;
+                $report_by=1;
                 $sleeping_date = $_POST['sleeping_date'];
                 $from = $_POST['sleeping_time_from'];
                 $to= $_POST['sleeping_time_to'];
