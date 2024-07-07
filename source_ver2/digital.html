@@ -9,16 +9,88 @@
 
     <link rel="stylesheet" href="1 bootstrap/css/bootstrap.css" />
     <script src="1 bootstrap/js/bootstrap.bundle.js"></script>
-    <link rel="icon" href="2 images/senzabordo.png"> 
+    <!-- <link rel="icon" href="2 images/senzabordo.png"> -->
     <link rel = "stylesheet" href = "style.css" />
     <link rel = "stylesheet" href = "digital.css" />
-    <title>Coffee Recordings</title>
+    <title>Digital Devices Recording</title>
+    
+
+   <!--  <script type="text/javascript" language="javascript">
+
+/* controllo validità nei form */
+        function validaIscrizione() {
+        var email=document.iscrizione.email.value;
+        var email_valid= /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/;
+        var telefono=document.iscrizione.telefono.value;
+        var telefono_valid= /^[0-9]{1,10}.[0-9]{2}$/;
+        if (!email_valid.test(email)) {
+        alert("E-mail non valida");
+        document.iscrizione.email.focus();
+        return false;
+        }
+        if(email==""){
+            alert("Inserisci e-mail");
+            document.iscrizione.email.focus();
+            return false;
+        }
+        if (document.iscrizione.nome.value==""){
+            alert("Inserisci il nome");
+            document.iscrizione.nome.focus();
+            return false;
+        }
+        if (document.iscrizione.cognome.value==""){
+            alert("Inserisci il cognome");
+            document.iscrizione.cognome.focus();
+            return false;
+        }
+        if (document.iscrizione.DataDiNascita.value==""){
+            alert("Inserisci la data di nascita");
+            document.iscrizione.DataDiNascita.focus();
+            return false;
+        }
+        if (!telefono_valid.test(telefono)) {
+        alert("Telefono non valido");
+        document.iscrizione.telefono.focus();
+        return false;
+        }
+        if (document.iscrizione.classe.value==""){
+            alert("Scegli la classe");
+            document.iscrizione.classe.focus();
+            return false;
+        }
+        /*alert("Dati inseriti correttamente");*/
+        return true;
+        }
 
 
+        function validaCollabora() {
+        var email=document.collabora.email.value;
+        var email_valid= /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/;
+        if (!email_valid.test(email)) {
+        alert("E-mail non valida");
+        document.collabora.email.focus();
+        return false;
+        }
+        if(email==""){
+            alert("Inserisci e-mail");
+            document.collabora.email.focus();
+            return false;
+        }
+        if (document.collabora.descrizione.value==""){
+            alert("Compila la descrizione");
+            document.collabora.descrizione.focus();
+            return false;
+        }
+        alert("Dati inseriti correttamente");
+        return true;
+        }
+        </script>
+ -->
+ 
 </head>
 
 <body>
-
+  
 <!-- navbar in alto -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
@@ -31,7 +103,13 @@
                 <a class="nav-link" href="home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="coffeerecordings.html">Coffee recordings</a>
+                    <a class="nav-link" href="headache.html">Headache recordings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Download.html">Download reports</a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" href="coffee.html">Coffee recordings</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="digital.html">Digital Devices Recordings</a>
@@ -45,13 +123,17 @@
             </ul>
           </div>
         </div>
+  
     </nav>
+
+
 <br>
 <br>
-
-   <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255)">Undergoing work</h1></strong>
-
-
+    <!--titoletto-->
+   
+   <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255)">Digital Devices Recording</h1></strong>
+   
+   
    <img src="2 images/logo.png" class="top-left-logo">
 
 
@@ -63,8 +145,8 @@
        Language
       </a>
       <ul class="dropdown-menu text-center">
-      <li><a class="dropdown-item" href="chisiamo.html">English</a></li>
-      <li><a class="dropdown-item" href="dovesiamo.html">Italiano</a></li>
+      <li><a class="dropdown-item" href="digital.html">English</a></li>
+      <li><a class="dropdown-item" href="source-ita/digital.html">Italiano</a></li>
       </ul>
     </div>
     <br><br>
@@ -83,19 +165,26 @@
     <h2>Summary</h2>
     <ul id="summary-list">
         <li class="summary-item active">Duration</li>
-        <li class="summary-item">Cups of coffee</li>
-        <li class="summary-item">Quality of sleep</li>
-        <li class="summary-item">Waking up duting night</li>
+        <li class="summary-item">Symptoms</li>
+        <li class="summary-item">Type of devices</li>
+        <li class="summary-item">Purpose</li>
     </ul>
   </div>
 
+<!--   report_id int NOT NULL,
+  digital_usage_from timestamp NOT NULL,
+  digital_usage_to timestamp NOT NULL,
+  symptoms char(100),
+  devices_type char(40) NOT NULL,
+  usage_for char(30) NOT NULL 
 
+    -->
 
   <div class="form-container">
-      <form id="multi-step-form" action = "coffee.php" method = "POST" name = "digital">
-
+      <form id="multi-step-form" action = "digital.php" method = "POST" name = "digital">
+          <!-- Pagina 1 della form -->
           <div class="form-page" style="text-align: center;" id="page1">
-              <h4 >How many hour did you sleep last night?</h4>
+              <h4 >How long have you used digital devices?</h4>
               <br><br>
               <label for="digital_date">Date:</label>
               <input type="date" id="digital_date" name="digital_date" required>
@@ -110,31 +199,31 @@
           </div>
           <!-- Pagina 2 della form -->
           <div class="form-page" style="text-align: center;" id="page2">
-              <h4 >how many cups of coffee did you have in a day?</h4>
+              <h4 >Do you have symptoms?</h4>
               <br><br>
               <div class="container-fluid">
                 <div class="row justify-content-between">
                   <div class="col-sm-4">
-
-              <label for="symptom1">1-2</label>
+        
+              <label for="symptom1">No symptoms</label>
               <input type="checkbox" id="symptom1" name="symptoms" value="No symptoms" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
-              <label for="symptom2">3-4</label>
+              <label for="symptom2">Red eyes</label>
               <input type="checkbox" id="symptom2" name="symptoms" value="Red eyes" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
-              <label for="symptpm3">5-7</label>
+              <label for="symptpm3">Headache</label>
               <input type="checkbox" id="symptom3" name="symptoms" value="Headache" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
               </div>
               <div class="col-sm-4">
 
-              <label for="symptom4">More than 7</label>
+              <label for="symptom4">Back pain</label>
               <input type="checkbox" id="symptom4" name="symptoms" value="Back pain" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
-              <label for="symptom5">Other</label>
+              <label for="symptom5">Neck pain</label>
               <input type="checkbox" id="symptom5" name="symptoms" value="Neck pain" onclick="updateConcatenatedValues('symptoms')">
               <br><br>
-              <label for="symptom6">i dod not have</label>
+              <label for="symptom6">Other</label>
               <input type="checkbox" id="symptom6" name="symptoms" value="Other" onclick="updateConcatenatedValues('symptoms')">
                   </div>
                 </div>
@@ -146,33 +235,33 @@
 
           <!--pagina 3-->
           <div class="form-page" style="text-align: center;" id="page3">
-            <h4 >On scale 1 to 10 how would you rate your sleep?</h4>
+            <h4 >What type of devices did you use?</h4>
             <br><br>
             <div class="container-fluid">
               <div class="row justify-content-between">
-
-
+          
+                   
                 <div class="col-sm-4">
-
-            <label for="type1">0-1</label>
+      
+            <label for="type1">Smartphone</label>
             <input type="checkbox" id="type1" name="devices_type" value="Smartphone" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
-            <label for="type2">2-4</label>
+            <label for="type2">Computer</label>
             <input type="checkbox" id="type2" name="devices_type" value="Computer" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
-            <label for="type3">3-5</label>
+            <label for="type3">Tablet</label>
             <input type="checkbox" id="type3" name="devices_type" value="Tablet" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
                 </div>
                 <div class="col-sm-4">
 
-            <label for="type4">6-7</label>
+            <label for="type4">Videogame console</label>
             <input type="checkbox" id="type4" name="devices_type" value="Videogame console" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
-            <label for="type5">8-10</label>
+            <label for="type5">E-book reader</label>
             <input type="checkbox" id="type5" name="devices_type" value="E-book reader" onclick="updateConcatenatedValues('devices_type')">
             <br><br>
-            <label for="type6">I have insomnia</label>
+            <label for="type6">Other</label>
             <input type="checkbox" id="type6" name="devices_type" value="Other" onclick="updateConcatenatedValues('devices_type')">
                 </div>
               </div>
@@ -182,15 +271,15 @@
         </div>
           <!-- Pagina 4 della form -->
           <div class="form-page" style="text-align: center;" id="page4">
-              <h4>Did you wake up during the sleep?</h4>
+              <h4>Did you use them for work or entertainment?</h4>
               <br><br>
-              <label for="usage1">Yes</label>
+              <label for="usage1">Work</label>
             <input type="checkbox" id="usage1" name="usage_for" value="Work" onclick="updateConcatenatedValues('usage_for')">
             <br><br>
-            <label for="usage2">No</label>
+            <label for="usage2">Entertainment</label>
             <input type="checkbox" id="usage2" name="usage_for" value="Entertainment" onclick="updateConcatenatedValues('usage_for')">
             <br><br>
-            <label for="usage3">I didn't sleep</label>
+            <label for="usage3">Both</label>
             <input type="checkbox" id="usage3" name="usage_for" value="Both" onclick="updateConcatenatedValues('usage_for')">
             <br><br><br>
 
@@ -202,7 +291,7 @@
               <button type="submit">Submit</button>
           </div>
 
-
+          
       </form>
   </div>
 </div>
@@ -211,7 +300,7 @@
 
 
 <script>
-
+   
   function updateConcatenatedValues(group) {
       var checkboxes = document.querySelectorAll(`input[name="${group}"]`);
       var values = [];
@@ -222,6 +311,9 @@
       });
       document.getElementById(`${group}_hidden`).value = values.join(';');
   }
+ 
   </script>
+
+  
 </body>
 </html>

@@ -1,0 +1,119 @@
+/* sfondo */
+body {
+
+    background-repeat: no-repeat;
+    background-image: url("2 images/sfondo1.jpg");
+    /* background-color: white ; */
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    }
+
+    #calendar {
+        max-width: 900px;
+        margin: 40px auto;
+    }
+
+/*bottone language */
+.language
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    padding: 10px;
+}
+/*bottone question*/
+.bottom-right-image {
+    position: fixed;
+    bottom: 25px;
+    right: 10px;
+    width: 50px; /* Dimensioni dell'immagine */
+    border-radius: 50%; /* Rendi l'immagine tonda */
+    border: 2px solid #fff; /* Aggiungi un bordo bianco */
+    height: 50px;
+}
+/*logged in as*/
+.bottom-left-logged {
+    position: fixed;
+    bottom: 10px; /* Spostato in basso */
+    left: 10px; /* Spostato a sinistra */
+    width: 100px; 
+    height: 50px; 
+}
+
+/*logo*/
+.top-left-logo {
+    position: absolute;
+    top: 15%; /* Spostato in basso */
+    left: 10%; /* Spostato a sinistra */
+    width: 10%; 
+    height: 15%; 
+}
+    /*characters*/
+
+    .container2 {
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+
+    /*fine caratteri*/
+
+
+    /*menu*/
+
+    .nav-item
+    {
+      text-decoration: none;
+      padding-left:3px;
+      padding-right:3px;
+      flex: 1;
+      text-align: center;
+    }
+    .dropdown
+    {
+        text-decoration: none;
+       /*  padding-right:80px; */
+    }
+
+    .nav-link {
+        color:rgb(3, 129, 226);
+        font-size: 18px;
+        text-shadow: -1px 0 white,
+        0 1px white, 1px 0 rgb(255, 255, 255),
+        0 -1px white;
+
+    }
+
+    .navbar-nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /*fine menu*/
+
+    /*da bootstrap */
+
+    .form-signin {
+        max-width: 730px;
+        padding: 15px;
+      }
+
+
+      .form-signin .form-floating:focus-within {
+        z-index: 2;
+      }
+
+      .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+
+      /*fine bootstrap*/
+ 
