@@ -37,19 +37,19 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
     const formData = new FormData(this); // 'this' fa riferimento al form stesso
     
     // Esempio di invio tramite fetch API
-    fetch('./digital.php', {
+    /* fetch('./digital.php', {
         method: 'POST',
         body: formData,
     })
     fetch('./Download.php', {
         method:'POST',
         body: formData,
-    })
+    }) */
     fetch('./headache.php', {
         method:'POST',
         body: formData,
     })
-   /*  .then(response => {
+    .then(response => {
         if (!response.ok) {
             throw new Error('Errore durante l\'invio dei dati');
         }
@@ -58,11 +58,12 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
     .then(data => {
         console.log('Risposta dal server:', data);
         // Gestisci la risposta dal server come desiderato
+        window.location.href = 'okpag.html';
     })
     .catch(error => {
         console.error('Errore:', error);
         // Gestisci gli errori di invio
-    }); */
+    });
 });
 
 function showSummary() {

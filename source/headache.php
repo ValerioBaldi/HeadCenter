@@ -44,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 */
 
                
-                $report_id = 3;
-                $report_by = 3;
+                $report_id = 13;
+                $report_by = 13;
                 $headache_date = $_POST['headache_date'];
                 $from = $_POST['starting_time'];
                 $to = $_POST['ending_time'];

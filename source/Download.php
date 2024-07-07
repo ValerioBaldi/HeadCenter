@@ -1,6 +1,6 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"] !="POST") { /* verifica richiesta post */
-        header("Location: digital.html");
+        header("Location: Download.html");
         exit;
     }
     else {

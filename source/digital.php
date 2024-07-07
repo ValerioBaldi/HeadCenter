@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                
                 $report_id=1;
+                $report_by=1;
                 $digital_date = $_POST['digital_date'];
                 $from = $_POST['digital_usage_from'];
                 $to= $_POST['digital_usage_to'];
