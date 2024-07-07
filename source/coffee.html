@@ -89,15 +89,7 @@
     </ul>
   </div>
 
-<!--   create table sleep (
-    report_id int NOT NULL PRIMARY KEY,
-    report_by int NOT NULL,
-    sleeping_time_from timestamp NOT NULL,
-    sleeping_time_to timestamp NOT NULL,
-    coffee_cups int NOT NULL,
-    sleeping_rate int NOT NULL,
-    awaken_during_sleep boolean NOT NULL
-); -->
+
 
   <div class="form-container">
       <form id="multi-step-form" action = "coffee.php" method = "POST" name = "coffee">
@@ -105,8 +97,8 @@
           <div class="form-page" style="text-align: center;" id="page1">
               <h4 >How many hours did you sleep last night?</h4>
               <br><br>
-              <label for="sleep_date">Date:</label>
-              <input type="date" id="sleep_date" name="sleep_date" required>
+              <label for="sleeping_date">Date:</label>
+              <input type="date" id="sleeping_date" name="sleeping_date" required>
               <br><br>
               <label for="sleeping_time_from">From:</label>
               <input type="time" id="sleeping_time_from" name="sleeping_time_from" required />
@@ -146,58 +138,42 @@
 
           <!--pagina 3-->
           <div class="form-page" style="text-align: center;" id="page3">
-            <h4 >On scale 1 to 10 how would you rate your sleep?</h4>
+            <h4 >On a scale from 1 to 5 how would you rate your sleep?</h4>
             <br><br>
-            <div class="container-fluid">
-              <div class="row justify-content-between">
+            
 
-
-                <div class="col-sm-4">
-
-            <label for="type1">0-1</label>
-            <input type="checkbox" id="type1" name="devices_type" value="Smartphone" onclick="updateConcatenatedValues('devices_type')">
-            <br><br>
-            <label for="type2">2-4</label>
-            <input type="checkbox" id="type2" name="devices_type" value="Computer" onclick="updateConcatenatedValues('devices_type')">
-            <br><br>
-            <label for="type3">3-5</label>
-            <input type="checkbox" id="type3" name="devices_type" value="Tablet" onclick="updateConcatenatedValues('devices_type')">
-            <br><br>
-                </div>
-                <div class="col-sm-4">
-
-            <label for="type4">6-7</label>
-            <input type="checkbox" id="type4" name="devices_type" value="Videogame console" onclick="updateConcatenatedValues('devices_type')">
-            <br><br>
-            <label for="type5">8-10</label>
-            <input type="checkbox" id="type5" name="devices_type" value="E-book reader" onclick="updateConcatenatedValues('devices_type')">
-            <br><br>
-            <label for="type6">I have insomnia</label>
-            <input type="checkbox" id="type6" name="devices_type" value="Other" onclick="updateConcatenatedValues('devices_type')">
-                </div>
-              </div>
-            </div>
-            <br><br>
+            <label style="margin-right: 10px;" for="type1">1</label>
+            <input style="margin-right: 20px;" type="radio" id="type1" name="sleeping_rate" value="1" >
+           
+            <label style="margin-right: 10px;" for="type2">2</label>
+            <input style="margin-right: 20px;" type="radio" id="type2" name="sleeping_rate" value="2" >
+            
+            <label style="margin-right: 10px;" for="type3">3</label>
+            <input style="margin-right: 20px;" type="radio" id="type3" name="sleeping_rate" value="3" >
+            
+            <label style="margin-right: 10px;" for="type4">4</label>
+            <input style="margin-right: 20px;" type="radio" id="type4" name="sleeping_rate" value="4" >
+            
+            <label style="margin-right: 10px;" for="type5">5</label>
+            <input style="margin-right: 20px;" type="radio" id="type5" name="sleeping_rate" value="5" >
+            
+            <br><br><br>
             <button type="button" onclick="nextPage()">Next</button>
         </div>
           <!-- Pagina 4 della form -->
           <div class="form-page" style="text-align: center;" id="page4">
-              <h4>Did you wake up during the sleep?</h4>
+              <h4>Did you wake up during your sleep?</h4>
               <br><br>
-              <label for="usage1">Yes</label>
-            <input type="checkbox" id="usage1" name="usage_for" value="Work" onclick="updateConcatenatedValues('usage_for')">
+              <label for="awaken_during_sleep1">Yes</label>
+            <input type="radio" id="usage1" name="awaken_during_sleep" value="yes" >
             <br><br>
-            <label for="usage2">No</label>
-            <input type="checkbox" id="usage2" name="usage_for" value="Entertainment" onclick="updateConcatenatedValues('usage_for')">
-            <br><br>
-            <label for="usage3">I didn't sleep</label>
-            <input type="checkbox" id="usage3" name="usage_for" value="Both" onclick="updateConcatenatedValues('usage_for')">
-            <br><br><br>
-
-            <!-- Campi nascosti per memorizzare i valori concatenati -->
-            <input type="hidden" id="symptoms_hidden" name="symptoms_hidden">
-            <input type="hidden" id="devices_type_hidden" name="devices_type_hidden">
-            <input type="hidden" id="usage_for_hidden" name="usage_for_hidden">
+            <label for="awaken_during_sleep2">No</label>
+            <input type="radio" id="usage2" name="awaken_during_sleep" value="no" >
+            <!-- <br><br> -->
+            <!-- <label for="usage3">I didn't sleep</label>
+            <input type="checkbox" id="usage3" name="awaken_during_sleep" value="Both" >
+            --> <br><br><br>
+            
 
               <button type="submit">Submit</button>
           </div>
@@ -210,18 +186,5 @@
 <script src="coffee.js"></script>
 
 
-<script>
-
-  function updateConcatenatedValues(group) {
-      var checkboxes = document.querySelectorAll(`input[name="${group}"]`);
-      var values = [];
-      checkboxes.forEach((checkbox) => {
-          if (checkbox.checked) {
-              values.push(checkbox.value);
-          }
-      });
-      document.getElementById(`${group}_hidden`).value = values.join(';');
-  }
-  </script>
 </body>
 </html>
