@@ -12,9 +12,10 @@ create table digital (
 create table sleep (
     report_id int NOT NULL PRIMARY KEY,
     report_by int NOT NULL,
+    sleep_date date,
     sleeping_time_from timestamp NOT NULL,
     sleeping_time_to timestamp NOT NULL,
-    coffee_cups int NOT NULL,
+    coffee_cups varchar(50) NOT NULL,
     sleeping_rate int NOT NULL,
     awaken_during_sleep boolean NOT NULL
 );

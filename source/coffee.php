@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "Error: " . pg_last_error($dbconn);
                 }
 
+                $report_by=1;
                 $sleeping_date = $_POST['sleeping_date'];
                 $from = $_POST['sleeping_time_from'];
                 $to= $_POST['sleeping_time_to'];

@@ -49,7 +49,7 @@
 <br>
 <br>
 
-   <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255)">Undergoing work</h1></strong>
+   <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255)">Coffee Recording</h1></strong>
 
 
    <img src="2 images/logo.png" class="top-left-logo">
@@ -85,61 +85,61 @@
         <li class="summary-item active">Duration</li>
         <li class="summary-item">Cups of coffee</li>
         <li class="summary-item">Quality of sleep</li>
-        <li class="summary-item">Waking up duting night</li>
+        <li class="summary-item">Waking up during night</li>
     </ul>
   </div>
 
-
+<!--   create table sleep (
+    report_id int NOT NULL PRIMARY KEY,
+    report_by int NOT NULL,
+    sleeping_time_from timestamp NOT NULL,
+    sleeping_time_to timestamp NOT NULL,
+    coffee_cups int NOT NULL,
+    sleeping_rate int NOT NULL,
+    awaken_during_sleep boolean NOT NULL
+); -->
 
   <div class="form-container">
-      <form id="multi-step-form" action = "coffee.php" method = "POST" name = "digital">
+      <form id="multi-step-form" action = "coffee.php" method = "POST" name = "coffee">
 
           <div class="form-page" style="text-align: center;" id="page1">
-              <h4 >How many hour did you sleep last night?</h4>
+              <h4 >How many hours did you sleep last night?</h4>
               <br><br>
-              <label for="digital_date">Date:</label>
-              <input type="date" id="digital_date" name="digital_date" required>
+              <label for="sleep_date">Date:</label>
+              <input type="date" id="sleep_date" name="sleep_date" required>
               <br><br>
-              <label for="digital_usage_from">From:</label>
-              <input type="time" id="digital_usage_from" name="digital_usage_from" required />
+              <label for="sleeping_time_from">From:</label>
+              <input type="time" id="sleeping_time_from" name="sleeping_time_from" required />
               <br><br>
-              <label for="digital_usage_to">To:</label>
-              <input type="time" id="digital_usage_to" name="digital_usage_to" required />
+              <label for="sleeping_time_to">To:</label>
+              <input type="time" id="sleeping_time_to" name="sleeping_time_to" required />
               <br><br><br>
               <button type="button" onclick="nextPage()">Next</button>
           </div>
           <!-- Pagina 2 della form -->
           <div class="form-page" style="text-align: center;" id="page2">
-              <h4 >how many cups of coffee did you have in a day?</h4>
+              <h4 >How many cups of coffee did you have in a day?</h4>
               <br><br>
-              <div class="container-fluid">
-                <div class="row justify-content-between">
-                  <div class="col-sm-4">
+              
+                
 
-              <label for="symptom1">1-2</label>
-              <input type="checkbox" id="symptom1" name="symptoms" value="No symptoms" onclick="updateConcatenatedValues('symptoms')">
+              <label for="coffee_cups1">1-2</label>
+              <input type="radio" id="coffee_cups1" name="coffee_cups" value="1-2" >
               <br><br>
-              <label for="symptom2">3-4</label>
-              <input type="checkbox" id="symptom2" name="symptoms" value="Red eyes" onclick="updateConcatenatedValues('symptoms')">
+              <label for="coffee_cups2">3-4</label>
+              <input type="radio" id="coffee_cups2" name="coffee_cups" value="3-4" >
               <br><br>
-              <label for="symptpm3">5-7</label>
-              <input type="checkbox" id="symptom3" name="symptoms" value="Headache" onclick="updateConcatenatedValues('symptoms')">
+              <label for="coffee_cups3">5-7</label>
+              <input type="radio" id="coffee_cups3" name="coffee_cups" value="5-7" >
               <br><br>
-              </div>
-              <div class="col-sm-4">
-
-              <label for="symptom4">More than 7</label>
-              <input type="checkbox" id="symptom4" name="symptoms" value="Back pain" onclick="updateConcatenatedValues('symptoms')">
+              <label for="coffee_cups4">More than 7</label>
+              <input type="radio" id="coffee_cups4" name="coffee_cups" value="More than 7" >
               <br><br>
-              <label for="symptom5">Other</label>
-              <input type="checkbox" id="symptom5" name="symptoms" value="Neck pain" onclick="updateConcatenatedValues('symptoms')">
-              <br><br>
-              <label for="symptom6">i dod not have</label>
-              <input type="checkbox" id="symptom6" name="symptoms" value="Other" onclick="updateConcatenatedValues('symptoms')">
-                  </div>
-                </div>
-              </div>
-              <br><br>
+              <label for="coffee_cups6">I didn't have coffee</label>
+              <input type="radio" id="coffee_cups6" name="coffee_cups" value="I didn't have coffee" >
+                  
+                
+              <br><br><br>
 
               <button type="button" onclick="nextPage()">Next</button>
           </div>
@@ -207,7 +207,7 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script src="coffee.js"></script>
 
 
 <script>
