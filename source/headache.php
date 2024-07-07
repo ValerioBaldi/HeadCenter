@@ -22,30 +22,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <?php
             if($dbconn) {
-                  /*  create table headache (
-                    report_id int NOT NULL PRIMARY KEY,
-                    report_by int NOT NULL,
-                    headache_date date,
-                    starting_time timestamp NOT NULL,
-                    ending_time timestamp,
-                    still_going boolean,
-                    ache_position char(20),
-                    ache_intensity char(10),
-                    ache_type char(20),
-                    painkillers char(100),
-                    repercussions char(100),
-                    symptoms char(100),
-                    notes char(200)
-                ); 
-                name="ache_position_hidden">
-                name="ache_type_hidden">
-                name="repercussions_hidden">
-                
-                */
+                $report_id=0;
+                $query1="select max(report_id) as MAX_id from headache";
+                $result=pg_query($dbconn, $query1);
+                if ($result) {
+                    $row = pg_fetch_assoc($result);
+                    $max_id = $row['max_id'];
+                    $report_id = $max_id+1;
+                } else {
+                    echo "Error: " . pg_last_error($dbconn);
+                }
 
-               
-                $report_id = 13;
-                $report_by = 13;
+                $report_by = 1;
                 $headache_date = $_POST['headache_date'];
                 $from = $_POST['starting_time'];
                 $to = $_POST['ending_time'];
