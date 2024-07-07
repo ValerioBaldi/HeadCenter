@@ -1,420 +1,316 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--jquery-->
-  <!--   <script src="jquery-3.6.0.js"></script> -->
-
+    <title>Registrazione mal di testa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../1 bootstrap/css/bootstrap.css" />
     <script src="../1 bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- <link rel="icon" href="2 images/senzabordo.png"> -->
-    <link rel = "stylesheet" href = "../style.css" />
-    <link rel = "stylesheet" href = "../digital.css" />
-    <title> registrazione mal di testa</title>
-    
-
-   <!--  <script type="text/javascript" language="javascript">
-
-/* controllo validità nei form */
-        function validaIscrizione() {
-        var email=document.iscrizione.email.value;
-        var email_valid= /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/;
-        var telefono=document.iscrizione.telefono.value;
-        var telefono_valid= /^[0-9]{1,10}.[0-9]{2}$/;
-        if (!email_valid.test(email)) {
-        alert("E-mail non valida");
-        document.iscrizione.email.focus();
-        return false;
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../digital.css" />
+    <style>
+        .summary {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            background-color: #f8f9fa;
+            border-left: 1px solid #dee2e6;
+            padding: 20px;
+            height: 100%;
+            overflow-y: auto;
         }
-        if(email==""){
-            alert("Inserisci e-mail");
-            document.iscrizione.email.focus();
-            return false;
+        .form-container2 {
+            margin-right: 220px; /* Space for the summary section */
+            text-align: center;
+            padding-left: 10%;
         }
-        if (document.iscrizione.nome.value==""){
-            alert("Inserisci il nome");
-            document.iscrizione.nome.focus();
-            return false;
+        .summary-item {
+            cursor: pointer;
+            margin-bottom: 10px;
         }
-        if (document.iscrizione.cognome.value==""){
-            alert("Inserisci il cognome");
-            document.iscrizione.cognome.focus();
-            return false;
+        .summary-item.active {
+            font-weight: bold;
         }
-        if (document.iscrizione.DataDiNascita.value==""){
-            alert("Inserisci la data di nascita");
-            document.iscrizione.DataDiNascita.focus();
-            return false;
-        }
-        if (!telefono_valid.test(telefono)) {
-        alert("Telefono non valido");
-        document.iscrizione.telefono.focus();
-        return false;
-        }
-        if (document.iscrizione.classe.value==""){
-            alert("Scegli la classe");
-            document.iscrizione.classe.focus();
-            return false;
-        }
-        /*alert("Dati inseriti correttamente");*/
-        return true;
+    </style>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
+        function updateSummary() {
+            const summaryFields = [
+                'headache_date', 'starting_time', 'ending_time', 'still_going', 
+                'ache_position_hidden', 'ache_intensity', 'ache_type_hidden', 
+                'painkillers_hidden', 'repercussions_hidden', 'symptoms', 'notes'
+            ];
 
-        function validaCollabora() {
-        var email=document.collabora.email.value;
-        var email_valid= /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/;
-        if (!email_valid.test(email)) {
-        alert("E-mail non valida");
-        document.collabora.email.focus();
-        return false;
+            summaryFields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    document.getElementById('summary-' + field).innerText = element.value || 'N/A';
+                }
+            });
         }
-        if(email==""){
-            alert("Inserisci e-mail");
-            document.collabora.email.focus();
-            return false;
+
+        function updateConcatenatedValues(name) {
+            const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+            const values = Array.from(checkboxes).map(checkbox => checkbox.value).join(', ');
+            document.getElementById(name + '_hidden').value = values;
+            updateSummary();
         }
-        if (document.collabora.descrizione.value==""){
-            alert("Compila la descrizione");
-            document.collabora.descrizione.focus();
-            return false;
-        }
-        alert("Dati inseriti correttamente");
-        return true;
-        }
-        </script>
- -->
- 
+    </script>
 </head>
-
 <body>
-  
-<!-- navbar in alto -->
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="home.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="headache.html">Registra mal di testa</a>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Download.html">Scarica una registrazione</a>
+              <a class="nav-link" href="headache.html">Registra mal di testa</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="Download.html">Scarica una registrazione</a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="coffee.html">Registra qualità del sonno</a>
             </li>
-              <li class="nav-item">
-                <a class="nav-link" href="coffee.html">Registra qualità del sonno</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="digital.html">Registra uso di dispositivi digitali</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="calendar.php">Calendario delle registrazioni</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="settings.html">Impostazioni</a>
-              </li>
-            </ul>
-          </div>
+            <li class="nav-item">
+              <a class="nav-link" href="digital.html">Registra uso di dispositivi digitali</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="calendar.php">Calendario delle registrazioni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="settings.html">Impostazioni</a>
+            </li>
+          </ul>
         </div>
-  
-    </nav>
+      </div>
+  </nav>
 
-
-<br>
-<br>
-    <!--titoletto-->
-   
-   <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255)"> Registrazione mal di testa</h1></strong>
-   
-   
-   <img src="../2 images/logo.png" class="top-left-logo">
-
+  <br><br>
+  <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255)">Registrazione mal di testa</h1></strong>
+  <img src="../2 images/logo.png" class="top-left-logo">
 
   <!-- language selection -->
-    <div class="language">
-      <br><br><br><br>
-    <a class="nav-link dropdown-toggle" href="#" role="button"
-      data-bs-toggle="dropdown" aria-expanded="false">
-       Lingua
-      </a>
-      <ul class="dropdown-menu text-center">
+  <div class="language">
+    <br><br><br><br>
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+      Lingua
+    </a>
+    <ul class="dropdown-menu text-center">
       <li><a class="dropdown-item" href="../headache.html">English</a></li>
       <li><a class="dropdown-item" href="headache.html">Italiano</a></li>
-      </ul>
-    </div>
-    <br><br>
-
-    <!-- info point -->
-    <img src="../2 images/question.png" alt="description" class="bottom-right-image">
-
-<!-- logged in as -->
-<h6 class="bottom-left-logged">Accesso effetuato come:</h6>
-
-
-
-
-<div class="container">
-  <div class="summary">
-    <h2>Sommario</h2>
-    <ul id="summary-list">
-        <li class="summary-item active">Durata</li>
-        <li class="summary-item">Posizione</li>
-        <li class="summary-item">Intensità</li>
-        <li class="summary-item">Tipo di doloro</li>
-        <li class="summary-item">Antidolorifici</li>
-        <li class="summary-item">Ripercussioni</li>
-        <li class="summary-item">Sintomi</li>
-        <li class="summary-item">Note</li>
-        <li class="summary-item">Riassunto</li>
     </ul>
   </div>
+  <br><br>
 
-<!--   create table headache (
-    report_id int NOT NULL PRIMARY KEY,
-    report_by int NOT NULL,
-    headache_date date,
-    starting_time timestamp NOT NULL,
-    ending_time timestamp,
-    still_going boolean,
-    ache_position char(20),
-    ache_intensity char(10),
-    ache_type char(20),
-    painkillers char(100),
-    repercussions char(100),
-    symptoms char(100),
-    notes char(200)
-); -->
+  <!-- info point -->
+  <img src="../2 images/question.png" alt="description" class="bottom-right-image">
 
-  <div class="form-container">
-      <form id="multi-step-form" action = "headache.php" method = "POST" name = "headache">
-          <!-- Pagina 1 della form -->
-          <div class="form-page" style="text-align: center;" id="page1">
-              <h4 >Quando è iniziato?</h4>
-              <br><br>
-              <label for="digital_date">Data:</label>
-              <input type="date" id="headache_date" name="headache_date" required>
-              <br><br>
-              <label for="starting_time">Da:</label>
-              <input type="time" id="starting_time" name="starting_time" required />
-              <br><br>
-              <label for="ending_time">A:</label>
-              <input type="time" id="ending_time" name="ending_time" />
-              <br><br>
-              <label for="still_going"> È ancora in corso?</label>
-              <input type="checkbox" id="still_going" name="still_going" value="true">
-              <br><br><br>
-              <button type="button" onclick="nextPage()">Continua</button>
-          </div>
-          <!-- Pagina 2 della form -->
-          <div class="form-page" style="text-align: center;" id="page2">
-              <h4 >Dove senti il dolore?</h4>
+  <!-- logged in as -->
+  <h6 class="bottom-left-logged">Accesso effetuato come:</h6>
+
+  <div>
+    <div class="summary">
+        <h2>Summary</h2>
+        <ul id="summary-list">
+            <li class="summary-item active" onclick="scrollToSection('1')">Durata</li>
+            <li class="summary-item" onclick="scrollToSection('2')">Posizione</li>
+            <li class="summary-item" onclick="scrollToSection('3')">Intensità</li>
+            <li class="summary-item" onclick="scrollToSection('4')">Tipologia di dolore</li>
+            <li class="summary-item" onclick="scrollToSection('5')">Antidolorifici</li>
+            <li class="summary-item" onclick="scrollToSection('6')">Ripercussioni</li>
+            <li class="summary-item" onclick="scrollToSection('7')">Sintomi</li>
+            <li class="summary-item" onclick="scrollToSection('8')">Note</li>
+            <li class="summary-item" onclick="scrollToSection('9')">Riassunto</li>
+        </ul>
+    </div>
+
+    <div class="form-container2">
+        <form id="multi-step-form" action="headache.php" method="POST" name="headache">
+            <!-- Pagina 1 della form -->
+            <div id="1">
+                <h4>Quando é iniziato?</h4>
+                <br><br>
+                <label for="headache_date">Data:</label>
+                <input type="date" id="headache_date" name="headache_date" required onchange="updateSummary()">
+                <br><br>
+                <label for="starting_time">Da:</label>
+                <input type="time" id="starting_time" name="starting_time" required onchange="updateSummary()">
+                <label for="ending_time">A:</label>
+                <input type="time" id="ending_time" name="ending_time" onchange="updateSummary()">
+                <br><br>
+                <label for="still_going">Fa ancora male?</label>
+                <input type="checkbox" id="still_going" name="still_going" value="true" onchange="updateSummary()">
+                <br><br>
+            </div>
+
+            <!-- Pagina 2 della form -->
+            <div id="2">
+                <h4>Dove senti il dolore?</h4>
+                <br><br>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-4">
+                          <label for="symptom1">Fronte destra</label>
+                          <input type="checkbox" id="symptom1" name="ache_position" value="Fronte destra" onclick="updateConcatenatedValues('ache_position')">
+                          <br><br>
+                          <label for="symptom2">Collo destro</label>
+                          <input type="checkbox" id="symptom2" name="ache_position" value="Collo destro" onclick="updateConcatenatedValues('ache_position')">
+                          <br><br>
+                          <label for="symptpm3">Tempie</label>
+                          <input type="checkbox" id="symptom3" name="ache_position" value="Tempie" onclick="updateConcatenatedValues('ache_position')">
+                          <br><br>
+                          </div>
+                          <div class="col-sm-4">
+            
+                          <label for="symptom4">Fronte sinistra</label>
+                          <input type="checkbox" id="symptom4" name="ache_position" value="Fronte sinistra" onclick="updateConcatenatedValues('ache_position')">
+                          <br><br>
+                          <label for="symptom5">Collo sinistro</label>
+                          <input type="checkbox" id="symptom5" name="ache_position" value="Collo sinistro" onclick="updateConcatenatedValues('ache_position')">
+                          <br><br>
+                          <label for="symptom6"> Centro della testa</label>
+                          <input type="checkbox" id="symptom6" name="ache_position" value="Centro della testa" onclick="updateConcatenatedValues('ache_position')">            
+                        </div>
+                    </div>
+                    <input type="hidden" id="ache_position_hidden" name="ache_position_hidden">
+                </div>
+            </div>
+
+            <!-- Pagina 3 della form -->
+            <div  id="3">
+                <h4>Quanto ti fa male?</h4>
+                <br><br>
+                <label for="usage1">Poco</label>
+                <input type="radio" id="ache1" name="ache_intensity" value="Poco">
+                <br><br>
+                <label for="usage2">Mediamente</label>
+                <input type="radio" id="ache2" name="ache_intensity" value="Media">
+                <br><br>
+                <label for="usage3">Tanto</label>
+                <input type="radio" id="ache3" name="ache_intensity" value="Tanto">
+                <br><br>
+            </div>
+
+            <!-- Pagina 4 della form -->
+            <div  id="4">
+              <h4 >Che tipo di dolore senti?</h4>
               <br><br>
               <div class="container-fluid">
-                <div class="row justify-content-between">
+                <div class="row justify-content-center">
                   <div class="col-sm-4">
         
-              <label for="symptom1">Fronte destra</label>
-              <input type="checkbox" id="symptom1" name="ache_position" value="Fronte destra" onclick="updateConcatenatedValues('ache_position')">
+              <label for="symptom1">Costrittivo</label>
+              <input type="checkbox" id="symptom1" name="ache_type" value="Costrittivo" onclick="updateConcatenatedValues('ache_type')">
               <br><br>
-              <label for="symptom2">Collo destro</label>
-              <input type="checkbox" id="symptom2" name="ache_position" value="Collo destro" onclick="updateConcatenatedValues('ache_position')">
-              <br><br>
-              <label for="symptpm3">Tempie</label>
-              <input type="checkbox" id="symptom3" name="ache_position" value="Tempie" onclick="updateConcatenatedValues('ache_position')">
+              <label for="symptom2">Pulsante</label>
+              <input type="checkbox" id="symptom2" name="ache_type" value="Pulsante" onclick="updateConcatenatedValues('ache_type')">
               <br><br>
               </div>
               <div class="col-sm-4">
+              <label for="symptom4">Nevralgico</label>
+              <input type="checkbox" id="symptom4" name="ache_type" value="Nevralgico" onclick="updateConcatenatedValues('ache_type')">
+              <br><br>
+              <label for="symptom5">Penetrante</label>
+              <input type="checkbox" id="symptom5" name="ache_type" value="Penetrante" onclick="updateConcatenatedValues('ache_type')">
+              <br><br><br>
+  
+                <input type="hidden" id="ache_type_hidden" name="ache_type_hidden">
+            </div>
 
-              <label for="symptom4">Fronte sinistra</label>
-              <input type="checkbox" id="symptom4" name="ache_position" value="Fronte sinistra" onclick="updateConcatenatedValues('ache_position')">
+            <!-- Pagina 5 della form -->
+            <div id="5">
+              <h4 >Hai assunto degli antidolorifici?</h4>
               <br><br>
-              <label for="symptom5">Collo sinistro</label>
-              <input type="checkbox" id="symptom5" name="ache_position" value="Collo sinistro" onclick="updateConcatenatedValues('ache_position')">
+              <div class="container-fluid">
+                <div class="row justify-content-center">
+                  <div class="col-sm-4">
+        
+              <label for="symptom1">Sì</label>
+              <input type="radio" id="symptom1" name="painkillers" value="true" onclick="updateConcatenatedValues('painkillers')">
               <br><br>
-              <label for="symptom6"> Centro della testa</label>
-              <input type="checkbox" id="symptom6" name="ache_position" value="Centro della testa" onclick="updateConcatenatedValues('ache_position')">
-                  </div>
+              </div>
+              <div class="col-sm-4">
+  
+              <label for="symptom4">No</label>
+              <input type="radio" id="symptom4" name="painkillers" value="false" onclick="updateConcatenatedValues('painkillers')">
+              <br><br>
+                 </div>
                 </div>
               </div>
+              <textarea rows="5" columns="25" placeholder="Se sì, che Antidolorifici hai assunto" name="painkillers" oninput="updateConcatenatedValues('painkillers')"></textarea>
+                <input type="hidden" id="painkillers_hidden" name="painkillers_hidden">
+            </div>
+
+            <!-- Pagina 6 della form -->
+            <div id="6">
+              <h4>Il dolore ha avuto qualche ripercussione?</h4>
               <br><br>
-
-              <button type="button" onclick="nextPage()">Continua</button>
-          </div>
-
-          <!--pagina 3-->
-          <div class="form-page" style="text-align: center;" id="page3">
-            <h4>Quanto fa male?</h4>
+              <label for="usage1"> Pegiori performance a lavoro o con lo studio</label>
+            <input type="checkbox" id="usage1" name="repercussions" value="Pegiori performance a lavoro o con lo studio" onclick="updateConcatenatedValues('repercussions')">
             <br><br>
-          <label for="usage1">Poco</label>
-          <input type="radio" id="ache1" name="ache_intensity" value="Poco">
-          <br><br>
-          <label for="usage2">Mediamente</label>
-          <input type="radio" id="ache2" name="ache_intensity" value="Mediamente">
-          <br><br>
-          <label for="usage3">Tanto</label>
-          <input type="radio" id="ache3" name="ache_intensity" value="Tanto">
-          <br><br><br>
-
-          <button type="button" onclick="nextPage()">Continua</button>
-        </div>
-        <!-- pagina 4 -->
-        <div class="form-page" style="text-align: center;" id="page4">
-            <h4 >Che tipo di dolore senti?</h4>
+            <label for="usage2"> Impossibilitato a lavorare e/o studiare</label>
+            <input type="checkbox" id="usage2" name="repercussions" value="Impossibilitato a lavorare e/o studiare" onclick="updateConcatenatedValues('repercussions')">
             <br><br>
-            <div class="container-fluid">
-              <div class="row justify-content-between">
-                <div class="col-sm-4">
-      
-            <label for="symptom1">Costrittivo</label>
-            <input type="checkbox" id="symptom1" name="ache_type" value="Costrittivo" onclick="updateConcatenatedValues('ache_type')">
+            <label for="usage3">Costretto a riposarmi</label>
+            <input type="checkbox" id="usage3" name="repercussions" value="Costretto a riposarmi" onclick="updateConcatenatedValues('repercussions')">
             <br><br>
-            <label for="symptom2">Pulsante</label>
-            <input type="checkbox" id="symptom2" name="ache_type" value="Pulsante" onclick="updateConcatenatedValues('ache_type')">
+            <label for="usage2"> Problemi col sonno</label>
+            <input type="checkbox" id="usage2" name="repercussions" value="Problemi col sonno" onclick="updateConcatenatedValues('repercussions')">
             <br><br>
-            </div>
-            <div class="col-sm-4">
-
-            <label for="symptom4">Nevralgico</label>
-            <input type="checkbox" id="symptom4" name="ache_type" value="Nevralgico" onclick="updateConcatenatedValues('ache_type')">
+            <label for="usage2">Aggiungi altro:</label>
             <br><br>
-            <label for="symptom5">Penetrante</label>
-            <input type="checkbox" id="symptom5" name="ache_type" value="Penetrante" onclick="updateConcatenatedValues('ache_type')">
-            <br><br><br>
-               </div>
-              </div>
-            </div>
-            <button type="button" onclick="nextPage()">Continua</button>
-        </div>
-        <!-- pagina 5 -->
-        <div class="form-page" style="text-align: center;" id="page5">
-            <h4 >Hai assunto degli antidolorifici?</h4>
-            <br><br>
-            <div class="container-fluid">
-              <div class="row justify-content-between">
-                <div class="col-sm-4">
-      
-            <label for="symptom1">Sì</label>
-            <input type="radio" id="symptom1" name="painkillers" value="true" onclick="updateConcatenatedValues('painkillers')">
-            <br><br>
-            </div>
-            <div class="col-sm-4">
-
-            <label for="symptom4">No</label>
-            <input type="radio" id="symptom4" name="painkillers" value="false" onclick="updateConcatenatedValues('painkillers')">
-            <br><br>
-               </div>
-              </div>
-            </div>
-            <textarea rows="5" columns="25" placeholder="Se sì, che Antidolorifici hai assunto" name="painkillers" oninput="updateConcatenatedValues('painkillers')"></textarea> 
-            <br><br><br>
-            <button type="button" onclick="nextPage()">Continua</button>
-        </div>
-        <!--pagina 6-->
-        <div class="form-page" style="text-align: center;" id="page6">
-            <h4>Il dolore ha avuto qualche ripercussione?</h4>
-            <br><br>
-            <label for="usage1"> Pegiori performance a lavoro o con lo studio</label>
-          <input type="checkbox" id="usage1" name="repercussions" value="Pegiori performance a lavoro o con lo studio" onclick="updateConcatenatedValues('repercussions')">
-          <br><br>
-          <label for="usage2"> Impossibilitato a lavorare e/o studiare</label>
-          <input type="checkbox" id="usage2" name="repercussions" value="Impossibilitato a lavorare e/o studiare" onclick="updateConcatenatedValues('repercussions')">
-          <br><br>
-          <label for="usage3">Costretto a riposarmi</label>
-          <input type="checkbox" id="usage3" name="repercussions" value="Costretto a riposarmi" onclick="updateConcatenatedValues('repercussions')">
-          <br><br>
-          <label for="usage2"> Problemi col sonno</label>
-          <input type="checkbox" id="usage2" name="repercussions" value="Problemi col sonno" onclick="updateConcatenatedValues('repercussions')">
-          <br><br>
-          <label for="usage2">Aggiungi altro:</label>
-          <br><br>
-          <textarea rows="5" columns="25" placeholder="..." name="repercussions" oninput="updateConcatenatedValues('repercussions')"></textarea> 
-          <br><br><br>
-
-          <button type="button" onclick="nextPage()">Continua</button>
-        </div>
-        <!--pagina 7-->
-        <div class="form-page" style="text-align: center;" id="page7">
-            <h4>Hai percepito qualche altro sintomo?</h4>
-            <br><br>
-          <textarea rows="5" columns="25" placeholder="..." name="symptoms"></textarea> 
-          <br><br><br>
-
-          <button type="button" onclick="nextPage()">Continua</button>
-        </div>
-        <!--pagina 8-->
-        <div class="form-page" style="text-align: center;" id="page8">
-            <h4>Aggiungi una nota</h4>
-            <br><br>
-          <textarea rows="5" columns="25" placeholder="..." name="notes"></textarea> 
-          <br><br><br>
-
-          <button type="button" onclick="nextPage()">Continua</button>
-        </div>
-          <!-- Pagina 9 della form -->
-          <div class="form-page" style="text-align: center;" id="page9">
-              <h4>Sommario</h4>
-              <br><br>
-              <div id="summary-content">
-                <p id="summary-headache-date"></p>
-                <p id="summary-starting-time"></p>
-                <p id="summary-ending-time"></p>
-                <p id="summary-still-going"></p>
-                <p id="summary-ache-position"></p>
-                <p id="summary-ache-intensity"></p>
-                <p id="summary-ache-type"></p>
-                <p id="summary-painkillers"></p>
-                <p id="summary-repercussions"></p>
-                <p id="summary-symptoms"></p>
-                <p id="summary-notes"></p>
+            <textarea rows="5" columns="25" placeholder="..." name="repercussions" oninput="updateConcatenatedValues('repercussions')"></textarea>
+                <input type="hidden" id="repercussions_hidden" name="repercussions_hidden">
             </div>
 
-            <!-- Campi nascosti per memorizzare i valori concatenati -->
-            <input type="hidden" id="ache_position_hidden" name="ache_position_hidden">
-            <input type="hidden" id="ache_type_hidden" name="ache_type_hidden">
-            <input type="hidden" id="painkillers_hidden" name="painkillers_hidden">
-            <input type="hidden" id="repercussions_hidden" name="repercussions_hidden">
+            <!-- Pagina 7 della form -->
+            <div id="7">
+                <h4>Hai percepito qualche altro sintomo?</h4>
+                <br><br>
+                <textarea id="symptoms" name="symptoms" rows="4" cols="50" placeholder="Describe any symptoms..." onchange="updateSummary()"></textarea>
+                <br><br>
+            </div>
 
-              <button type="submit">Submit</button>
-          </div>
+            <!-- Pagina 8 della form -->
+            <div id="8">
+                <h4>Aggiungi una nota</h4>
+                <br><br>
+                <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Any additional notes..." onchange="updateSummary()"></textarea>
+                <br><br>
+            </div>
 
-          
-      </form>
+            <!-- Pagina 9 della form -->
+            <div id="9">
+                <h4>Sommario</h4>
+                <br><br>
+                <p>Data: <span id="summary-headache_date">N/A</span></p>
+                <p>Da: <span id="summary-starting_time">N/A</span></p>
+                <p>A: <span id="summary-ending_time">N/A</span></p>
+                <p>è ancora in corso?: <span id="summary-still_going">N/A</span></p>
+                <p>Posizione del dolore: <span id="summary-ache_position_hidden">N/A</span></p>
+                <p>Intensità: <span id="summary-ache_intensity">N/A</span></p>
+                <p>Tipologia di dolore: <span id="summary-ache_type_hidden">N/A</span></p>
+                <p>Antidolorifici: <span id="summary-painkillers_hidden">N/A</span></p>
+                <p>Repercussioni: <span id="summary-repercussions_hidden">N/A</span></p>
+                <p>Sintomi: <span id="summary-symptoms">N/A</span></p>
+                <p>Note: <span id="summary-notes">N/A</span></p>
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
   </div>
-</div>
-
-<script src="../script.js"></script>
-
-
-<script>
-   
-   function updateConcatenatedValues(group) {
-    var inputs = document.querySelectorAll(`input[name="${group}"]`);
-    var textarea = document.querySelector(`textarea[oninput="updateConcatenatedValues('${group}')"]`);
-    var values = [];
-
-    if (textarea && textarea.value) {
-        values.push(textarea.value);
-    }
-
-    inputs.forEach((input) => {
-        if (input.checked) {
-            values.push(input.value);
-        }
-    });
-
-    document.getElementById(`${group}_hidden`).value = values.join(';');
-}
-
- 
-  </script>
-
-  
+  <script src="script.js"></script>
 </body>
 </html>

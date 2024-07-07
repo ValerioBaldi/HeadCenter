@@ -22,15 +22,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <?php
             if($dbconn) {
-                /*report_id int NOT NULL,
-                digital_usage_from timestamp NOT NULL,
-                digital_usage_to timestamp NOT NULL,
-                symptoms char(100),
-                devices_type char(40) NOT NULL,
-                usage_for char(30) NOT NULL */
+                $report_id=0;
+                $query1="select max(report_id) as MAX_id from digital";
+                $result=pg_query($dbconn, $query1);
+                if ($result) {
+                    $row = pg_fetch_assoc($result);
+                    $max_id = $row['max_id'];
+                    $report_id = $max_id+1;
+                } else {
+                    echo "Error: " . pg_last_error($dbconn);
+                }
 
-               
-                $report_id=1;
                 $report_by=1;
                 $digital_date = $_POST['digital_date'];
                 $from = $_POST['digital_usage_from'];
