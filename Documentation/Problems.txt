@@ -1,0 +1,13 @@
+- can I put more than one option? (checkboxes)
+
+- type of pain (constrictive, nevralgic ecc): I don't know what they mean
+
+- add a note: what I have to add? Is that mandatory?
+
+- other symptoms: vista affaticata is a symptom?
+
+- summary in english instead of italian, value true
+
+- version 2 is awful
+
+- "any" symptoms of version 2: is not "any" it's "any other"
