@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="1 bootstrap/css/bootstrap.css" />
+    <script src="1 bootstrap/js/bootstrap.bundle.js"></script>
+    <link rel="icon" href="2 images/senzabordo.png">
+
+</head>
+<body>
+
+   <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255); padding: 50px">HeadCenter</h1></strong>
+    <img src="2 images/logo.png" class="top-left-logo">
+    <div class="language">
+        <br><br><br><br>
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Language</a>
+        <ul class="dropdown-menu text-center">
+            <li><a class="dropdown-item" href="index.html">English</a></li>
+            <li><a class="dropdown-item" href="source-ita/index.html">Italiano</a></li>
+        </ul>
+    </div>
+
+  <form class = "box" action="auth.php" method="post" style="text-align: center;">
+    <div class= "bg-img">
+     <div class="container">
+
+ <header>Sign in</header>
+ <br>
+         <form>
+            <input type="text" name="username" placeholder="Username" required> <br><br>
+            <input type="password" name="password" placeholder="Password" required> <br><br>
+            <input type="submit" value="Login">
+         </form>
+         <br><br>
+         <h5>You don't have an account?</h5><a href="index.html">Register now</a>
+</body>
+</html>

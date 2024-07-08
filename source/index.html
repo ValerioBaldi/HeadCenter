@@ -4,63 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="stylesheet" href="styles.css">
-
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="1 bootstrap/css/bootstrap.css" />
+    <script src="1 bootstrap/js/bootstrap.bundle.js"></script>
+    <link rel="icon" href="2 images/senzabordo.png">
 </head>
 <body>
-  <form class = "box" action="insert.php" method="post">
-<!-- <div class="container">
-  <div class="auth">
-
-       <header>Register</header>
-       <form>
-        <div class="input-field">
-             <input type="text" required name="Firstname"
-             placeholder="Firstname">
- </div>
-          <div class="input-field">
-             <input type="text" required name="Lastname"
-             placeholder="Secondname">
-          </div>
-          <div class="input-field">
-             <input type="text" required name="Email"
-             placeholder="Email">
-          </div>
-          <div class="input-field">
-             <input class="pswrd" type="password" required name="Pass"
-             placeholder="Password">
-             <span class="show">SHOW</span>
-
-          </div>
-          <div class="button">
-             <div class="inner"></div>
-             <button>Register</button>
-          </div>
-       </form>
-       <div class="signin">
-          Have an account? <a href="singin.php">Login Here.</a>
-       </div>
-   </div>
- </form> -->
-
-
-
-
-
-
-
-
-
-    <h1>Sign up</h1>
-    <header>Register</header>
-
-       <input type="text"  name="username" placeholder="Username">
-       <input type="password" name="password" placeholder="Password">
-       <input type="submit" value="Login">
-       <div class="signin">
-            Have an account? <a href="auth.html">Login Here.</a>
-         </div>
-      </form>
+    <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255); padding: 50px">HeadCenter</h1></strong>
+    <img src="2 images/logo.png" class="top-left-logo">
+    <div class="language">
+        <br><br><br><br>
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Language</a>
+        <ul class="dropdown-menu text-center">
+            <li><a class="dropdown-item" href="index.html">English</a></li>
+            <li><a class="dropdown-item" href="source-ita/index.html">Italiano</a></li>
+        </ul>
+    </div>
+    <br><br>
+    <div class="container" style="text-align: center; padding: 120 px;">
+        <form action="insert.php" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="first_name" placeholder="First Name" required> <br><br>
+            <input type="text" name="surname" placeholder="Surname" required>
+            <input type="password" name="password" placeholder="Password" required> <br><br>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required> <br><br>
+            <input type="submit" value="Sign Up">
+            <div class="signin">
+                Have an account? <a href="auth.html">Login Here.</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
