@@ -33,6 +33,7 @@ if(!$con){
     $result = pg_query_params($con, $query, array($user_id, $username, $password, $firstname, $surname, $age));
 
     if ($result) {
+        $_SESSION["id"]=$user_id;
         $_SESSION["username"] = $username;
         header("Location: Home.php");
         exit();

@@ -7,13 +7,14 @@
         require('../fpdf186/fpdf.php');
 
         $type=$_POST['type'];
+        $id=$_SESSION['id'];
         $start=$_POST['starting_date'];
         $end=$_POST['ending_date'];
         $dbconnect = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=postgres") or die('could not connect: ' . pg_last_error());
         if($type=="headache"){
             $query = "SELECT starting_time, ending_time, ache_position, ache_intensity, ache_type,
-                painkillers, repercussions, symptoms FROM headache where starting_time <=  $1 AND ending_time >=  $2"; //to add the check on the user_id
-            $result= pg_query_params($query,array($end, $start)) or die('query failed: ' . pg_last_error());
+                painkillers, repercussions, symptoms FROM headache where starting_time <=  $1 AND ending_time >=  $2 AND report_by=$3"; //to add the check on the user_id
+            $result= pg_query_params($query,array($end, $start, $id)) or die('query failed: ' . pg_last_error());
 
             //pdf creation and download
             $pdf = new FPDF();
@@ -39,8 +40,8 @@
         }
         elseif($type=="sleep"){
             $query = "SELECT sleeping_time_from, sleeping_time_to, coffee_cups, sleeping_rate, awaken_during_sleep
-                FROM sleep where sleeping_time_from <=  $1 AND sleeping_time_to >=  $2"; //to add the check on the user_id
-            $result= pg_query_params($query,array($end, $start)) or die('query failed: ' . pg_last_error());
+                FROM sleep where sleeping_time_from <=  $1 AND sleeping_time_to >=  $2 AND report_by=$3"; //to add the check on the user_id
+            $result= pg_query_params($query,array($end, $start, $id)) or die('query failed: ' . pg_last_error());
 
             //pdf creation and download
             $pdf = new FPDF();
@@ -63,8 +64,8 @@
         }
         elseif($type=="digital"){
             $query = "SELECT digital_usage_from, digital_usage_to, symptoms, devices_type, usage_for
-                FROM digital where digital_usage_from <= $1 AND digital_usage_to >= $2"; //to add the check on the user_id
-            $result= pg_query_params($query,array($end, $start)) or die('query failed: ' . pg_last_error());
+                FROM digital where digital_usage_from <= $1 AND digital_usage_to >= $2 AND report_by=$3"; //to add the check on the user_id
+            $result= pg_query_params($query,array($end, $start, $id)) or die('query failed: ' . pg_last_error());
                 
                 //pdf creation and download
             $pdf = new FPDF();

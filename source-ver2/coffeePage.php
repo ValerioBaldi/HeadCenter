@@ -109,7 +109,7 @@ if (!$res) {
     <img src="2 images/question.png" alt="description" class="bottom-right-image">
 
     <?php
-      echo "<h6 class=\"bottom-left-logged\">Logged in as: '$username'</h6>";
+      echo "<h6 class=\"bottom-left-logged\">Logged in as: $username</h6>";
     ?>
 
 
@@ -220,7 +220,7 @@ if (!$res) {
   </div>
 </div>
 
-<script src="coffee.js"></script>
+<script src="coffees.js"></script>
 
 
 </body>

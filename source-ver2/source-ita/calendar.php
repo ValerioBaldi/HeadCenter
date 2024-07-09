@@ -47,9 +47,12 @@ if (!$res) {
 
     <?php
         $dbconnect = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=postgres") or die('could not connect: ' . pg_last_error());
-        $query = "SELECT report_id as rid, starting_time, ending_time FROM headache";
-        $result = pg_query($dbconnect, $query) or die('query failed: ' . pg_last_error());
+        $query = "SELECT report_id as rid, starting_time, ending_time FROM headache where report_by=$1";
+        $id=$_SESSION['id'];
+        $result = pg_query_params($dbconnect, $query, array($id)) or die('query failed: ' . pg_last_error());
         $resultArr = pg_fetch_all($result);
+
+        $events[] = array();
 
         if ($resultArr) {
             $events = array();
@@ -68,8 +71,8 @@ if (!$res) {
 
         pg_free_result($result);
 
-        $query2 = "SELECT report_id as rid, digital_usage_from as starting_time, digital_usage_to as ending_time FROM digital";  // Modifica con il nome della tua tabella
-        $result2 = pg_query($dbconnect, $query2) or die('query2 failed: ' . pg_last_error());
+        $query2 = "SELECT report_id as rid, digital_usage_from as starting_time, digital_usage_to as ending_time FROM digital where report_by=$1";  // Modifica con il nome della tua tabella
+        $result2 = pg_query_params($dbconnect, $query2, array($id)) or die('query2 failed: ' . pg_last_error());
         $resultArr2 = pg_fetch_all($result2);
 
         if ($resultArr2) {
@@ -86,8 +89,8 @@ if (!$res) {
         }
         pg_free_result($result2);
 
-        $query3 = "SELECT report_id as rid, sleeping_time_from as starting_time, sleeping_time_to as ending_time FROM sleep";  // Modifica con il nome della tua tabella
-        $result3 = pg_query($dbconnect, $query3) or die('query2 failed: ' . pg_last_error());
+        $query3 = "SELECT report_id as rid, sleeping_time_from as starting_time, sleeping_time_to as ending_time FROM sleep where report_by=$1";  // Modifica con il nome della tua tabella
+        $result3 = pg_query_params($dbconnect, $query3, array($id)) or die('query2 failed: ' . pg_last_error());
         $resultArr3 = pg_fetch_all($result3);
 
         if ($resultArr3) {
@@ -172,7 +175,7 @@ if (!$res) {
         <img src="../2 images/question.png" alt="description" class="bottom-right-image">
 
         <?php
-          echo "<h6 class=\"bottom-left-logged\">Accesso effetuato come: '$username'</h6>";
+          echo "<h6 class=\"bottom-left-logged\">Accesso effetuato come: $username</h6>";
         ?>
 
 

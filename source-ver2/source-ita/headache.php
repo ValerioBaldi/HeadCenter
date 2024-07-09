@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <?php
             if($dbconn) {
+                session_start();
                 $report_id=0;
                 $query1="select max(report_id) as MAX_id from headache";
                 $result=pg_query($dbconn, $query1);

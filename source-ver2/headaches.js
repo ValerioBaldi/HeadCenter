@@ -45,7 +45,7 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
         method:'POST',
         body: formData,
     }) */
-    fetch('./digital.php', {
+    fetch('./headache.php', {
         method:'POST',
         body: formData,
     })
@@ -58,7 +58,7 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
     .then(data => {
         console.log('Risposta dal server:', data);
         // Gestisci la risposta dal server come desiderato
-        window.location.href = 'okpag.html';
+        window.location.href = 'okpag.php';
     })
     .catch(error => {
         console.error('Errore:', error);
@@ -66,7 +66,7 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
     });
 });
 
-/* function showSummary() {
+function showSummary() {
     document.getElementById('summary-headache-date').innerText = `Date: ${document.getElementById('headache_date').value}`;
     document.getElementById('summary-starting-time').innerText = `From: ${document.getElementById('starting_time').value}`;
     document.getElementById('summary-ending-time').innerText = `To: ${document.getElementById('ending_time').value}`;
@@ -78,4 +78,4 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
     document.getElementById('summary-repercussions').innerText = `Repercussions: ${document.getElementById('repercussions_hidden').value}`;
     document.getElementById('summary-symptoms').innerText = `Symptoms: ${document.querySelector('textarea[name="symptoms"]').value}`;
     document.getElementById('summary-notes').innerText = `Notes: ${document.querySelector('textarea[name="notes"]').value}`;
-}; */
+};

@@ -130,7 +130,7 @@ if (!$res) {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="homePage.php">Home</a>
+                <a class="nav-link" href="home.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="headachePage.php">Registra mal di testa</a>
@@ -185,7 +185,7 @@ if (!$res) {
     <img src="../2 images/question.png" alt="description" class="bottom-right-image">
 
     <?php
-        echo "<h6 class=\"bottom-left-logged\">Accesso effetuato come: '$username'</h6>";
+        echo "<h6 class=\"bottom-left-logged\">Accesso effetuato come: $username</h6>";
     ?>
 
 <div class="container">
@@ -417,7 +417,7 @@ if (!$res) {
   </div>
 </div>
 
-<script src="headache.js"></script>
+<script src="headaches.js"></script>
 
 
 <script>

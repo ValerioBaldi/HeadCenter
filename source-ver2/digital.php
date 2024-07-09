@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <?php
             if($dbconn) {
+                session_start();
                 $report_id=0;
                 $query1="select max(report_id) as MAX_id from digital";
                 $result=pg_query($dbconn, $query1);
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "Error: " . pg_last_error($dbconn);
                 }
 
-                $report_by=1;
+                $report_by=$_SESSION['id'];
                 $digital_date = $_POST['digital_date'];
                 $from = $_POST['digital_usage_from'];
                 $to= $_POST['digital_usage_to'];

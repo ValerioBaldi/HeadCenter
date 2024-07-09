@@ -105,8 +105,9 @@ if (!$res) {
         <!-- info point -->
         <img src="2 images/question.png" alt="description" class="bottom-right-image">
 
-    <!-- logged in as -->
-    <h6 class="bottom-left-logged">Logged in as:</h6>
+        <?php
+            echo "<h6 class=\"bottom-left-logged\">Logged in as: $username</h6>";
+        ?>
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] !="GET") { /* verifica richiesta post */

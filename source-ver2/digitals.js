@@ -58,7 +58,7 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
     .then(data => {
         console.log('Risposta dal server:', data);
         // Gestisci la risposta dal server come desiderato
-        window.location.href = 'okpag.html';
+        window.location.href = 'okpag.php';
     })
     .catch(error => {
         console.error('Errore:', error);

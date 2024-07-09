@@ -109,7 +109,7 @@ if (!$res) {
     <img src="../2 images/question.png" alt="description" class="bottom-right-image">
 
     <?php
-        echo "<h6 class=\"bottom-left-logged\">Accesso effetuato come: '$username'</h6>";
+        echo "<h6 class=\"bottom-left-logged\">Accesso effetuato come: $username</h6>";
     ?>
 
 <div class="container">
@@ -211,6 +211,6 @@ if (!$res) {
       </form>
   </div>
 </div>
-<script src="coffee.js"></script>
+<script src="coffees.js"></script>
 </body>
 </html>

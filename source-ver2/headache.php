@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head></head>
     <body>
         <?php
+            session_start();
             if($dbconn) {
                 $report_id=0;
                 $query1="select max(report_id) as MAX_id from headache";
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "Error: " . pg_last_error($dbconn);
                 }
 
-                $report_by = 1;
+                $report_by = $_SESSION['id'];
                 $headache_date = $_POST['headache_date'];
                 $from = $_POST['starting_time'];
                 $to = $_POST['ending_time'];

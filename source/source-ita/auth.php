@@ -10,7 +10,7 @@ $con = pg_connect("host=$host port=5432 dbname=$db user =$user password=$pass")
  $password = $_POST['password'];
 
 
- $query = "SELECT * FROM users WHERE username = ('$username')
+ $query = "SELECT id FROM users WHERE username = ('$username')
  AND  pass = ('$password')";
 
  $result = pg_query($con, $query);
@@ -20,6 +20,9 @@ $con = pg_connect("host=$host port=5432 dbname=$db user =$user password=$pass")
   header('Location: Home.php');
   session_start();
   $_SESSION['username'] = $username;
+  $row = pg_fetch_assoc($result);
+        $_SESSION = $row['id'];
+  }
  }
  if(!$result) {
    die("SOMETHING IS WRONG");

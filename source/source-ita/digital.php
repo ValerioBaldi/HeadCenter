@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <?php
             if($dbconn) {
+                session_start();
                 $report_id=0;
                 $query1="select max(report_id) as MAX_id from sleep";
                 $result=pg_query($dbconn, $query1);
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                
-                $report_id=1;
+                $report_by=$_SESSION['id'];
                 $digital_date = $_POST['digital_date'];
                 $from = $_POST['digital_usage_from'];
                 $to= $_POST['digital_usage_to'];
@@ -47,9 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $digital_usage_to = $digital_date . ' ' . $to;
 
 
-                $q2 = "insert into digital values ($1, $2, $3, $4, $5, $6, $7)";
+                $q2 = "insert into digital values ($1, $2, $3, $4, $5, $6, $7, $8)";
                 $data=pg_query_params($dbconn, $q2,
-                        array($report_id, $digital_date, $digital_usage_from, $digital_usage_to,
+                        array($report_id, $report_by, $digital_date, $digital_usage_from, $digital_usage_to,
                         $symptoms, $devices_type, $usage_for));
                 if ($data) {
                     

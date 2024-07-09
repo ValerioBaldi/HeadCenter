@@ -58,7 +58,7 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
     .then(data => {
         console.log('Risposta dal server:', data);
         // Gestisci la risposta dal server come desiderato
-        window.location.href = 'okpag.html';
+        window.location.href = 'okpag.php';
     })
     .catch(error => {
         console.error('Errore:', error);
@@ -67,15 +67,15 @@ document.getElementById('multi-step-form').addEventListener('submit', function(e
 });
 
 function showSummary() {
-    document.getElementById('summary-headache-date').innerText = `Date: ${document.getElementById('headache_date').value}`;
-    document.getElementById('summary-starting-time').innerText = `From: ${document.getElementById('starting_time').value}`;
-    document.getElementById('summary-ending-time').innerText = `To: ${document.getElementById('ending_time').value}`;
-    document.getElementById('summary-still-going').innerText = `Still going: ${document.getElementById('still_going').checked ? 'Yes' : 'No'}`;
-    document.getElementById('summary-ache-position').innerText = `Pain Position: ${document.getElementById('ache_position_hidden').value}`;
-    document.getElementById('summary-ache-intensity').innerText = `Pain Intensity: ${document.querySelector('input[name="ache_intensity"]:checked').value}`;
-    document.getElementById('summary-ache-type').innerText = `Pain Type: ${document.getElementById('ache_type_hidden').value}`;
-    document.getElementById('summary-painkillers').innerText = `Painkillers: ${document.getElementById('painkillers_hidden').value}`;
-    document.getElementById('summary-repercussions').innerText = `Repercussions: ${document.getElementById('repercussions_hidden').value}`;
-    document.getElementById('summary-symptoms').innerText = `Symptoms: ${document.querySelector('textarea[name="symptoms"]').value}`;
-    document.getElementById('summary-notes').innerText = `Notes: ${document.querySelector('textarea[name="notes"]').value}`;
+    document.getElementById('summary-headache-date').innerText = `Data: ${document.getElementById('headache_date').value}`;
+    document.getElementById('summary-starting-time').innerText = `Da: ${document.getElementById('starting_time').value}`;
+    document.getElementById('summary-ending-time').innerText = `A: ${document.getElementById('ending_time').value}`;
+    document.getElementById('summary-still-going').innerText = `Ancora in corso: ${document.getElementById('still_going').checked ? 'Sì' : 'No'}`;
+    document.getElementById('summary-ache-position').innerText = `Posizione: ${document.getElementById('ache_position_hidden').value}`;
+    document.getElementById('summary-ache-intensity').innerText = `Intensità: ${document.querySelector('input[name="ache_intensity"]:checked').value}`;
+    document.getElementById('summary-ache-type').innerText = `Tipologia di dolore: ${document.getElementById('ache_type_hidden').value}`;
+    document.getElementById('summary-painkillers').innerText = `Antidolorifici: ${document.getElementById('painkillers_hidden').value}`;
+    document.getElementById('summary-repercussions').innerText = `Ripercussioni: ${document.getElementById('repercussions_hidden').value}`;
+    document.getElementById('summary-symptoms').innerText = `Sintomi: ${document.querySelector('textarea[name="symptoms"]').value}`;
+    document.getElementById('summary-notes').innerText = `Note: ${document.querySelector('textarea[name="notes"]').value}`;
 };

@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <?php
             if($dbconn) {
+                session_start();
                 $report_id=0;
                 $query1="select max(report_id) as MAX_id from sleep";
                 $result=pg_query($dbconn, $query1);
@@ -33,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "Error: " . pg_last_error($dbconn);
                 }
 
+                $report_by=$_SESSION['id']
                 $sleeping_date = $_POST['sleeping_date'];
                 $from = $_POST['sleeping_time_from'];
                 $to= $_POST['sleeping_time_to'];
@@ -43,9 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sleeping_time_from = $sleeping_date . ' ' . $from;
                 $sleeping_time_to = $sleeping_date . ' ' . $to;
 
-                $q2 = "insert into sleep values ($1, $2, $3, $4, $5, $6, $7)";
+                $q2 = "insert into sleep values ($1, $2, $3, $4, $5, $6, $7, $8)";
                 $data=pg_query_params($dbconn, $q2,
-                        array($report_id, $sleeping_date, $sleeping_time_from, $sleeping_time_to,
+                        array($report_id, $report_by, $sleeping_date, $sleeping_time_from, $sleeping_time_to,
                         $coffee_cups, $sleeping_rate, $awaken_during_sleep));
                 if ($data) {
                     header("Location: okpag.php") ;
