@@ -73,9 +73,6 @@ if (!$res) {
                   <li class="nav-item">
                     <a class="nav-link" href="calendar.php">Personal Report Calendar</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="settings.html">Settings</a>
-                  </li>
                 </ul>
               </div>
             </div>
@@ -96,8 +93,9 @@ if (!$res) {
       <!-- language selection -->
         <div class="language">
           <br><br><br><br>
+          <img src="2 images/uk.png" style="width: 3px0px; height:20px; display: inline-block; vertical-align: middle;"> 
         <a class="nav-link dropdown-toggle" href="#" role="button"
-          data-bs-toggle="dropdown" aria-expanded="false">
+          data-bs-toggle="dropdown" aria-expanded="false" style=" display: inline-block; vertical-align: middle;">
            Language
           </a>
           <ul class="dropdown-menu text-center">
@@ -115,7 +113,7 @@ if (!$res) {
         ?>
     
     
-    <div class="container">
+    <div class="container" style= "background-color: rgb(204, 247, 247); ; border: 2px solid black;">
       
       <form action = "Download.php" style="text-align: center;font-size: medium;" method = "POST" name = "download">
             

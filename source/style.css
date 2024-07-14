@@ -12,6 +12,7 @@ body {
 
     #calendar {
         max-width: 900px;
+        max-height: 400px;
         margin: 40px auto;
     }
 

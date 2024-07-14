@@ -134,9 +134,6 @@ if (!$res) {
                 <li class="nav-item">
                     <a class="nav-link" href="calendar.php">Personal Report Calendar</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="settings.html">Settings</a>
-                </li>
                 </ul>
             </div>
             </div>
@@ -157,8 +154,9 @@ if (!$res) {
     <!-- language selection -->
         <div class="language">
         <br><br><br><br>
+        <img src="2 images/uk.png" style="width: 3px0px; height:20px; display: inline-block; vertical-align: middle;"> 
         <a class="nav-link dropdown-toggle" href="#" role="button"
-        data-bs-toggle="dropdown" aria-expanded="false">
+        data-bs-toggle="dropdown" aria-expanded="false" style=" display: inline-block; vertical-align: middle;">
         Language
         </a>
         <ul class="dropdown-menu text-center">
@@ -202,8 +200,8 @@ if (!$res) {
                     let customDiv = document.createElement('div');
                     customDiv.style.backgroundColor = arg.event.backgroundColor; 
                     customDiv.style.borderRadius = '50%';
-                    customDiv.style.width = '10px'; 
-                    customDiv.style.height = '10px'; 
+                    customDiv.style.width = '5px'; 
+                    customDiv.style.height = '5px'; 
                     customDiv.style.display = 'inline-block'; 
                     return { domNodes: [customDiv] }; 
                 },
