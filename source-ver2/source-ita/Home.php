@@ -117,7 +117,7 @@ if (!$res) {
 
   <a  href="headachePage.php" style="text-decoration: none;"> Registra mal di testa</a> <br>
 <br>
-  <a  href="quickheadachePage.php" style="text-decoration: none;"> Registra velocemente un mal di testa</a> <br>
+  <a  href="quickheadache.php" style="text-decoration: none;"> Registra velocemente un mal di testa</a> <br>
   <br>
   <a  href="digitalPage.php" style="text-decoration: none;"> Registra uso di dispositivi digitali</a> <br>
   <br>

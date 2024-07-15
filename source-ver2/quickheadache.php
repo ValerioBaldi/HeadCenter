@@ -114,7 +114,7 @@ if (!$res) {
     ?>
 
 
-    <div class="">
+    <div style="text-align: center; background-color: rgb(204, 247, 247); ">
       <form action = "headache.php" method = "POST" name = "headache">
           <!-- Pagina 1 della form -->
           
@@ -132,10 +132,8 @@ if (!$res) {
               <label for="still_going">Is it still going?</label>
               <input type="checkbox" id="still_going" name="still_going" value="true">
               <br><br><br>
-            
-    </div>
               <button type="submit">Submit</button> 
       </form>
-
+    </div>
 </body>
 </html>

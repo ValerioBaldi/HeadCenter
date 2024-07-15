@@ -113,7 +113,7 @@ if (!$res) {
         echo "<h6 class=\"bottom-left-logged\">Accesso effetuato come: $username</h6>";
     ?>
 
-    <div class="">
+    <div style="text-align: center; background-color: rgb(204, 247, 247); ">
       <form action = "headache.php" method = "POST" name = "headache">
           <!-- Pagina 1 della form -->
           
@@ -131,10 +131,8 @@ if (!$res) {
               <label for="still_going">È ancora in corso?</label>
               <input type="checkbox" id="still_going" name="still_going" value="true">
               <br><br><br>
-            
-    </div>
               <button type="submit">Invia</button> 
       </form>
-
+  </div>
 </body>
 </html>

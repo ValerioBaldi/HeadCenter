@@ -47,7 +47,7 @@ body {
 /*logo*/
 .top-left-logo {
     position: absolute;
-    top: 15%; /* Spostato in basso */
+    top: 10%; /* Spostato in basso */
     left: 10%; /* Spostato a sinistra */
     width: 10%; 
     height: 15%; 
@@ -86,7 +86,6 @@ body {
         text-shadow: -1px 0 white,
         0 1px white, 1px 0 rgb(255, 255, 255),
         0 -1px white;
-
     }
 
     .navbar-nav {
