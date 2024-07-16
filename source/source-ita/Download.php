@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if ($_SERVER["REQUEST_METHOD"] !="POST") { /* verifica richiesta post */
         header("Location: digitalPage.php");
         exit;
