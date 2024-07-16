@@ -62,7 +62,7 @@ if (!$res) {
                     <a class="nav-link" href="headachepage.php">Headache recordings</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="DownloadPage.php">Download reports</a>
+                    <a class="nav-link" href="DownloadPage.php">Select reports to Download</a>
                 </li>
                   <li class="nav-item">
                     <a class="nav-link" href="coffeePage.php">Coffee recordings</a>
@@ -84,7 +84,7 @@ if (!$res) {
     <br>
         <!--titoletto-->
        
-       <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255)">Download a Report</h1></strong>
+       <strong><h1 class="fw-bolder text-center" style="color:rgb(80, 197, 255)">Select reports to Download</h1></strong>
        
        
        <img src="2 images/logo.png" class="top-left-logo">

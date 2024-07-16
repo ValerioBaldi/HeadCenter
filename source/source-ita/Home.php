@@ -63,7 +63,7 @@ if (!$res) {
                 <a class="nav-link" href="headachePage.php">Registra mal di testa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="DownloadPage.php">Scarica una registrazione</a>
+                <a class="nav-link" href="DownloadPage.php">Seleziona registrazioni da scaricare</a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="coffeePage.php">Registra qualità del sonno</a>
@@ -125,7 +125,7 @@ if (!$res) {
   <br>
   <a href="calendar.php" style="text-decoration: none;"> Calendario delle registrazioni </a> <br>
   <br>
-  <a  href="DownloadPage.php" style="text-decoration: none;"> Scarica una registrazione </a>
+  <a  href="DownloadPage.php" style="text-decoration: none;"> Seleziona registrazioni da scaricare </a>
 </div>
 </strong>
 

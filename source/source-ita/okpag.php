@@ -134,7 +134,7 @@ if (!$res) {
                 <a class="nav-link" href="headachePage.php">Registra mal di testa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="DownloadPage.php">Scarica una registrazione</a>
+                <a class="nav-link" href="DownloadPage.php">Seleziona registrazioni da scaricare</a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="coffeePage.php">Registra qualità del sonno</a>

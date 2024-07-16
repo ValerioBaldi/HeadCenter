@@ -61,7 +61,7 @@ if (!$res) {
                 <a class="nav-link" href="headachePage.php">Headache recordings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="DownloadPage.php">Download reports</a>
+                <a class="nav-link" href="DownloadPage.php">Select reports to Download</a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="coffeePage.php">Coffee recordings</a>
@@ -124,7 +124,7 @@ if (!$res) {
   <br>
   <a style="text-decoration: none;" href="calendar.php">Personal Report Calendar  </a> <br>
   <br>
-  <a  style="text-decoration: none;" href="DownloadPage.php"> Download a report </a></strong>
+  <a  style="text-decoration: none;" href="DownloadPage.php"> Select reports to Download </a></strong>
 </div>
 </body>
 </html>
